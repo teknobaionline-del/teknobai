@@ -26,7 +26,17 @@ export async function POST(req: NextRequest) {
     rateLimit.set(ip, { count: 1, timestamp: now });
   }
 
-  const { name, email, message, services } = await req.json();
+  const { name, email, message, services, recaptchaToken } = await req.json();
+  
+  // Verificar reCAPTCHA
+  const recaptchaRes = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+    { method: "POST" }
+  );
+  const recaptchaData = await recaptchaRes.json();
+  if (!recaptchaData.success || recaptchaData.score < 0.5) {
+    return NextResponse.json({ success: false, error: "reCAPTCHA fallido" }, { status: 400 });
+  }
 
   // Validación básica
   if (!name || !email || !message) {
