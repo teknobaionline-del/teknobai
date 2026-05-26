@@ -19,6 +19,7 @@ const services = [
     icon: Bot,
     label: "02",
     slug: "chatbots-ia",
+    comingSoon: true,
     title: "Chatbots con IA",
     description: "Asistentes virtuales inteligentes que atienden a tus clientes 24/7, resuelven dudas y aumentan las conversiones automáticamente.",
     features: ["GPT-4 / Claude", "Integración web", "Multilenguaje", "Analytics"],
@@ -31,6 +32,7 @@ const services = [
     icon: Cpu,
     label: "03",
     slug: "agentes-ia",
+    comingSoon: true,
     title: "Agentes de IA",
     description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana.",
     features: ["Agentes autónomos", "Integración APIs", "Workflows IA", "Monitoreo"],
@@ -109,10 +111,15 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <a href={`/servicios/${s.slug}`} className={`inline-flex items-center gap-1.5 text-xs font-semibold ${s.accent} hover:gap-2.5 transition-all duration-200`}>
-                    Saber más <ArrowUpRight size={12} />
-                
-                  </a>
+                  {s.comingSoon ? (
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/6 border border-white/10 text-snow-dim">
+                      🚀 Coming Soon
+                    </span>
+                  ) : (
+                    <a href={`/servicios/${s.slug}`} className={`inline-flex items-center gap-1.5 text-xs font-semibold ${s.accent} hover:gap-2.5 transition-all duration-200`}>
+                      Saber más <ArrowUpRight size={12} />
+                    </a>
+                  )}
                 </div>
               </div>
             );
