@@ -6,6 +6,7 @@ const services = [
   {
     icon: Globe,
     label: "01",
+    slug: "desarrollo-web",
     title: "Desarrollo Web Premium",
     description: "Webs de alto rendimiento que convierten visitas en clientes. Diseño exclusivo, velocidad extrema y experiencia de usuario excepcional.",
     features: ["Next.js / React", "Diseño a medida", "CMS integrado", "Velocidad máxima"],
@@ -17,6 +18,7 @@ const services = [
   {
     icon: Bot,
     label: "02",
+    slug: "chatbots-ia",
     title: "Chatbots con IA",
     description: "Asistentes virtuales inteligentes que atienden a tus clientes 24/7, resuelven dudas y aumentan las conversiones automáticamente.",
     features: ["GPT-4 / Claude", "Integración web", "Multilenguaje", "Analytics"],
@@ -28,6 +30,7 @@ const services = [
   {
     icon: Cpu,
     label: "03",
+    slug: "agentes-ia",
     title: "Agentes de IA",
     description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana.",
     features: ["Agentes autónomos", "Integración APIs", "Workflows IA", "Monitoreo"],
@@ -35,39 +38,6 @@ const services = [
     glow: "shadow-glow-cyan",
     accent: "text-cyan-soft",
     iconBg: "bg-cyan-brand/15",
-  },
-  {
-    icon: Zap,
-    label: "04",
-    title: "Automatización Empresarial",
-    description: "Eliminamos tareas repetitivas y conectamos tus herramientas. Tu equipo se enfoca en lo que importa, el resto funciona solo.",
-    features: ["Make / Zapier", "APIs personalizadas", "Flujos complejos", "ROI medible"],
-    gradient: "from-amber-500/20 via-transparent to-transparent",
-    glow: "shadow-lg shadow-amber-500/10",
-    accent: "text-amber-400",
-    iconBg: "bg-amber-500/15",
-  },
-  {
-    icon: Palette,
-    label: "05",
-    title: "Branding Digital",
-    description: "Identidad visual que impacta y permanece. Desde el logo hasta el sistema de diseño completo para tu marca digital.",
-    features: ["Logo & identidad", "Design system", "Brand guidelines", "Motion design"],
-    gradient: "from-rose-500/20 via-transparent to-transparent",
-    glow: "shadow-lg shadow-rose-500/10",
-    accent: "text-rose-400",
-    iconBg: "bg-rose-500/15",
-  },
-  {
-    icon: Search,
-    label: "06",
-    title: "SEO & Crecimiento",
-    description: "Estrategia SEO técnica y de contenido para dominar los resultados de búsqueda. Tráfico orgánico que crece mes a mes.",
-    features: ["SEO técnico", "Contenido IA", "Link building", "Core Web Vitals"],
-    gradient: "from-emerald-500/20 via-transparent to-transparent",
-    glow: "shadow-lg shadow-emerald-500/10",
-    accent: "text-emerald-400",
-    iconBg: "bg-emerald-500/15",
   },
 ];
 
@@ -139,8 +109,9 @@ export default function Services() {
                     ))}
                   </div>
 
-                  <a href="#contacto" className={`inline-flex items-center gap-1.5 text-xs font-semibold ${s.accent} hover:gap-2.5 transition-all duration-200`}>
+                  <a href={`/servicios/${s.slug}`} className={`inline-flex items-center gap-1.5 text-xs font-semibold ${s.accent} hover:gap-2.5 transition-all duration-200`}>
                     Saber más <ArrowUpRight size={12} />
+                
                   </a>
                 </div>
               </div>

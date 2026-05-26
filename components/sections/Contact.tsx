@@ -31,9 +31,21 @@ export default function Contact() {
   const toggle = (s: string) =>
     setSelected((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setSent(true);
+  
+  await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="text"]')?.value,
+      email: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="email"]')?.value,
+      message: (e.target as HTMLFormElement).querySelector("textarea")?.value,
+      services: selected,
+    }),
+  });
+  
   };
 
   return (

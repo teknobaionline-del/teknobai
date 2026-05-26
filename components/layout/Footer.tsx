@@ -58,7 +58,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {links.map((l) => (
                   <li key={l}>
-                    <a href="#" className="text-sm text-snow-dim hover:text-white transition-colors">
+                    <a href={l === "Política de privacidad" ? "/privacidad" : "#"} className="text-sm text-snow-dim hover:text-white transition-colors">
                       {l}
                     </a>
                   </li>

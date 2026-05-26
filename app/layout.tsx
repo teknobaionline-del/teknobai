@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import CookieBanner from "@/components/CookieBanner";
+import CookieBanner from "../components/CookieBanner";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body>
         {children}
         <CookieBanner />
+        <WhatsAppButton />
       </body>
     </html>
   );
