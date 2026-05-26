@@ -60,12 +60,6 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contacto"
-            className="text-sm text-snow-muted hover:text-white transition-colors font-medium"
-          >
-            Entrar
-          </a>
-          <a
-            href="#contacto"
             className="btn-primary relative inline-flex items-center gap-2 bg-electric text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-electric-bright transition-all duration-200 shadow-glow-sm hover:shadow-glow hover:-translate-y-px"
           >
             <span className="relative z-10">Contactar</span>
