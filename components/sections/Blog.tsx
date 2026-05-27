@@ -11,6 +11,7 @@ const posts = [
     time: "4 min",
     date: "20 Mayo 2026",
     href: "https://rafaganoticias.com/2026/05/20/novedades-importantes-en-google-io-2026/",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
   },
   {
     tag: "Regulación",
@@ -20,6 +21,7 @@ const posts = [
     time: "5 min",
     date: "19 Mayo 2026",
     href: "https://www.multiplicalia.com/novedades-ia-mayo-2026/",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80",
   },
   {
     tag: "Desarrollo Web",
@@ -29,6 +31,7 @@ const posts = [
     time: "4 min",
     date: "20 Mayo 2026",
     href: "https://reviblog.net/noticia/noticias-tecnologia-20-mayo-2026/",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80",
   },
 ];
 
@@ -63,9 +66,7 @@ export default function Blog() {
               <span className="gradient-text-electric">marca la diferencia.</span>
             </h2>
           </div>
-          <a href="#" className="reveal inline-flex items-center gap-2 text-sm font-medium text-electric-bright hover:text-white transition-colors">
-            Ver todos los artículos <ArrowUpRight size={14} />
-          </a>
+          
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
@@ -78,13 +79,9 @@ export default function Blog() {
               className={`reveal reveal-delay-${i + 1} group block glass rounded-2xl border border-white/6 hover:border-white/14 hover:shadow-card-hover transition-all duration-400 overflow-hidden`}
             >
               {/* Placeholder image area */}
-              <div className="h-44 bg-gradient-to-br from-ink-raised to-void relative overflow-hidden">
-                <div className="absolute inset-0 dot-pattern opacity-40" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-white/8" />
-                <img src="/images/insights.png" alt="Insights" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <span className="text-2xl font-bold gradient-text-electric">TB</span>
-                </div>
+              <div className="h-44 relative overflow-hidden">
+                <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
               <div className="p-6">
