@@ -7,8 +7,8 @@ const nav = {
 };
 
 const socials = [
-  { icon: Twitter, href: "https://twitter.com/teknobai", label: "Twitter" },
-  { icon: Linkedin, href: "https://linkedin.com/company/teknobai", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/TeknoBai", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/teknobai-online-b391ba412/", label: "LinkedIn" },
   { icon: Instagram, href: "https://instagram.com/teknobai.online", label: "Instagram" },
   { icon: Github, href: "https://github.com/teknobai", label: "GitHub" },
 ];
