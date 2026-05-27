@@ -6,26 +6,29 @@ const posts = [
   {
     tag: "Inteligencia Artificial",
     tagColor: "text-violet-soft bg-violet-brand/15",
-    title: "Cómo los agentes de IA están redefiniendo el servicio al cliente en 2025",
-    excerpt: "Los agentes autónomos ya no son ciencia ficción. Analizamos cómo empresas de todos los tamaños están automatizando el 80% de sus interacciones.",
-    time: "8 min",
-    date: "12 Mayo 2025",
+    title: "Google I/O 2026: Gemini supera los 900 millones de usuarios y lanza agentes autónomos",
+    excerpt: "Google presenta la nueva era de agentes de IA capaces de realizar tareas completas de forma autónoma. Gemini 3.5 Flash llega con velocidad 4 veces superior y el Modo IA en Search supera los 1.000 millones de usuarios.",
+    time: "4 min",
+    date: "20 Mayo 2026",
+    href: "https://rafaganoticias.com/2026/05/20/novedades-importantes-en-google-io-2026/",
+  },
+  {
+    tag: "Regulación",
+    tagColor: "text-electric-bright bg-electric/15",
+    title: "Nuevas obligaciones legales para empresas con IA desde agosto 2026",
+    excerpt: "A partir del 2 de agosto, las empresas deberán informar cuando sus usuarios interactúen con IA y etiquetar contenido generado automáticamente. Afecta directamente a negocios con chatbots y automatización.",
+    time: "5 min",
+    date: "19 Mayo 2026",
+    href: "https://www.multiplicalia.com/novedades-ia-mayo-2026/",
   },
   {
     tag: "Desarrollo Web",
-    tagColor: "text-electric-bright bg-electric/15",
-    title: "Next.js 15 vs Astro 4: Cuál elegir para tu próximo proyecto en 2025",
-    excerpt: "Una comparativa técnica honesta entre los dos frameworks más populares del ecosistema React. Rendimiento, DX y casos de uso reales.",
-    time: "6 min",
-    date: "5 Mayo 2025",
-  },
-  {
-    tag: "Automatización",
     tagColor: "text-emerald-400 bg-emerald-500/15",
-    title: "ROI de la automatización: Cómo calcular el retorno real en tu empresa",
-    excerpt: "Muchas empresas automatizan sin medir. Te mostramos un framework práctico para calcular el impacto económico real de cada flujo automatizado.",
-    time: "5 min",
-    date: "28 Abril 2025",
+    title: "WebMCP: el nuevo estándar que conecta agentes de IA directamente con la web",
+    excerpt: "Google, Microsoft y el W3C proponen un protocolo abierto que permite a los agentes de IA ejecutar tareas directamente en páginas web. Un cambio que transformará cómo se construyen las webs.",
+    time: "4 min",
+    date: "20 Mayo 2026",
+    href: "https://reviblog.net/noticia/noticias-tecnologia-20-mayo-2026/",
   },
 ];
 
@@ -69,7 +72,9 @@ export default function Blog() {
           {posts.map((p, i) => (
             <a
               key={p.title}
-              href="#"
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`reveal reveal-delay-${i + 1} group block glass rounded-2xl border border-white/6 hover:border-white/14 hover:shadow-card-hover transition-all duration-400 overflow-hidden`}
             >
               {/* Placeholder image area */}
