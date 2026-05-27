@@ -2,7 +2,6 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import ValueProposition from "@/components/sections/ValueProposition";
 import Services from "@/components/sections/Services";
-import AISection from "@/components/sections/AISection";
 import Portfolio from "@/components/sections/Portfolio";
 import About from "@/components/sections/About";
 import Testimonials from "@/components/sections/Testimonials";
@@ -18,7 +17,6 @@ export default function Home() {
       <Hero />
       <ValueProposition />
       <Services />
-      <AISection />
       <Portfolio />
       <About />
       <Testimonials />
