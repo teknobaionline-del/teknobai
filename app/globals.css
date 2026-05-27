@@ -215,3 +215,16 @@ body {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+.section-dark {
+  background-color: #050508;
+}
+
+.section-darker {
+  background-color: #08080f;
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), rgba(139,92,246,0.3), transparent);
+  margin: 0;
+}
