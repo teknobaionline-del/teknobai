@@ -1,9 +1,19 @@
 import { Zap, Twitter, Linkedin, Instagram, Github, ArrowUpRight } from "lucide-react";
 
 const nav = {
-  Servicios: ["Desarrollo Web", "Chatbots IA", "Agentes IA", "Automatización", "Branding", "SEO"],
-  Empresa: ["Sobre nosotros", "Portfolio", "Blog", "Casos de éxito"],
-  Legal: ["Política de privacidad", "Aviso legal", "Cookies"],
+  Servicios: [
+    { label: "Desarrollo Web", href: "/servicios/desarrollo-web" },
+  ],
+  Empresa: [
+    { label: "Sobre nosotros", href: "#nosotros" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Blog", href: "#blog" },
+  ],
+  Legal: [
+    { label: "Política de privacidad", href: "/privacidad" },
+    { label: "Aviso legal", href: "#" },
+    { label: "Cookies", href: "#" },
+  ],
 };
 
 const socials = [
@@ -19,7 +29,6 @@ export default function Footer() {
       <div className="absolute inset-0 bg-ink/80" />
 
       <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-8">
-        {/* Top grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -37,7 +46,6 @@ export default function Footer() {
             <p className="text-sm text-snow-dim leading-relaxed max-w-xs mb-6">
               Tecnología que transforma negocios. Desarrollo web, IA y automatización para empresas que quieren liderar.
             </p>
-            {/* Newsletter */}
             <div className="flex gap-2">
               <input
                 type="email"
@@ -57,9 +65,9 @@ export default function Footer() {
               <h4 className="text-[10px] font-bold text-white uppercase tracking-widest mb-4">{section}</h4>
               <ul className="space-y-2.5">
                 {links.map((l) => (
-                  <li key={l}>
-                    <a href={l === "Política de privacidad" ? "/privacidad" : "#"} className="text-sm text-snow-dim hover:text-white transition-colors">
-                      {l}
+                  <li key={l.label}>
+                    <a href={l.href} className="text-sm text-snow-dim hover:text-white transition-colors">
+                      {l.label}
                     </a>
                   </li>
                 ))}
