@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Mail, MessageSquare, Phone, ArrowRight, Send, CheckCircle } from "lucide-react";
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const services = [
   "Desarrollo web",
@@ -12,10 +13,12 @@ const services = [
   "Todo lo anterior",
 ];
 
-export default function Contact() {
+function ContactForm() {
   const ref = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,25 +35,27 @@ export default function Contact() {
     setSelected((prev) => prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setSent(true);
-  
-  await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="text"]')?.value,
-      email: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="email"]')?.value,
-      message: (e.target as HTMLFormElement).querySelector("textarea")?.value,
-      services: selected,
-    }),
-  });
-  
+    e.preventDefault();
+    if (!executeRecaptcha) return;
+    setLoading(true);
+    const token = await executeRecaptcha("contact_form");
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="text"]')?.value,
+        email: (e.target as HTMLFormElement).querySelector<HTMLInputElement>('[type="email"]')?.value,
+        message: (e.target as HTMLFormElement).querySelector("textarea")?.value,
+        services: selected,
+        recaptchaToken: token,
+      }),
+    });
+    setLoading(false);
+    setSent(true);
   };
 
   return (
     <section id="contacto" ref={ref} className="relative py-28 md:py-36 overflow-hidden">
-      {/* BG */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-void via-ink to-void" />
         <div className="glow-orb w-[600px] h-[600px] bg-electric left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 opacity-8" />
@@ -58,7 +63,6 @@ export default function Contact() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
-        {/* Big CTA headline */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
             <span className="w-5 h-px bg-electric-bright" />
@@ -76,12 +80,11 @@ export default function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-5 gap-8">
-          {/* Contact info sidebar */}
           <div className="lg:col-span-2 space-y-4">
             {[
               { icon: Mail, label: "Email directo", value: "teknobai.online@gmail.com", href: "mailto:teknobai.online@gmail.com", color: "text-electric-bright", bg: "bg-electric/15" },
-              { icon: MessageSquare, label: "WhatsApp", value: "+34 747 439 421", href: "https://wa.me/34747439421", color: "text-emerald-400", bg: "bg-emerald-500/15" },
-              { icon: Phone, label: "Llamada directa", value: "+34 747 439 421", href: "tel:+34747439421", color: "text-violet-soft", bg: "bg-violet-brand/15" },
+              { icon: MessageSquare, label: "WhatsApp", value: "+34 633 027 532", href: "https://wa.me/34633027532", color: "text-emerald-400", bg: "bg-emerald-500/15" },
+              { icon: Phone, label: "Llamada directa", value: "+34 633 027 532", href: "tel:+34633027532", color: "text-violet-soft", bg: "bg-violet-brand/15" },
             ].map((c) => {
               const Icon = c.icon;
               return (
@@ -118,7 +121,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
           <div className="lg:col-span-3">
             <div className="reveal glass-strong border-gradient rounded-2xl p-8 shadow-float">
               {sent ? (
@@ -178,10 +180,11 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="btn-primary w-full inline-flex items-center justify-center gap-2.5 bg-electric text-white font-semibold py-4 rounded-xl shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all duration-200"
+                    disabled={loading}
+                    className="btn-primary w-full inline-flex items-center justify-center gap-2.5 bg-electric text-white font-semibold py-4 rounded-xl shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send size={15} />
-                    Enviar mensaje
+                    {loading ? "Enviando..." : "Enviar mensaje"}
                   </button>
                 </form>
               )}
@@ -190,5 +193,13 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function Contact() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}>
+      <ContactForm />
+    </GoogleReCaptchaProvider>
   );
 }
