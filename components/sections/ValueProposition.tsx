@@ -11,18 +11,18 @@ const problems = [
 
 const results = [
   { icon: TrendingUp, title: "Más clientes", desc: "Tu web trabaja por ti 24/7 atrayendo nuevos clientes mientras tú te dedicas a tu negocio." },
-  { icon: Shield, title: "Más confianza", desc: "Una imagen profesional genera confianza inmediata. Los clientes deciden en segundos." },
-  { icon: Zap, title: "Más velocidad", desc: "Webs rápidas, modernas y optimizadas. Lista en menos de 14 días." },
+  { icon: Shield, title: "Más confianza", desc: "Una imagen profesional y cercana genera confianza ." },
+  { icon: Zap, title: "Más velocidad", desc: "Webs rápidas, modernas, fluidas y optimizadas. Lista en menos de 14 días." },
   { icon: Users, title: "Más reservas", desc: "Sistemas de contacto y reserva integrados para que no pierdas ninguna oportunidad." },
 ];
 
 const reasons = [
-  "Diseño premium a medida — sin plantillas genéricas",
-  "Tecnología moderna con IA y automatización",
+  "Un diseño que encaje con tu negocio",
+  "Enfoque moderno con IA y automatización",
   "Entrega en menos de 14 días",
-  "Soporte directo y cercano",
-  "Resultados medibles desde el primer mes",
+  "Soporte técnico cuando lo necesites",
   "Precio justo para negocios locales",
+  "Pero sobre todo, TRANSPARENCIA",
 ];
 
 export default function ValueProposition() {
@@ -62,11 +62,10 @@ export default function ValueProposition() {
               <h2 className="reveal font-display text-white mb-6" style={{fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700}}>
                 Sin web profesional,
                 <br />
-                <span className="italic text-rose-400">tu negocio es invisible.</span>
+                <span className="italic text-rose-400">tu negocio es prehistórico.</span>
               </h2>
               <p className="reveal text-snow-muted text-lg leading-relaxed mb-8">
-                Hoy la primera impresión de cualquier empresa ocurre en internet.
-                En menos de 3 segundos, un cliente potencial decide si confía en ti o se va a la competencia.
+                Digan lo que digan la primera imagen es vital. En menos de 3 segundos, un cliente potencial decide si confía en ti o se va a la competencia.
               </p>
               <ul className="space-y-3">
                 {problems.map((p, i) => (
@@ -79,16 +78,7 @@ export default function ValueProposition() {
                 ))}
               </ul>
             </div>
-            <div className="reveal glass rounded-2xl p-8 border border-rose-500/20">
-              <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-rose-400 mb-2">75%</div>
-                <p className="text-snow-muted text-sm">de los usuarios juzgan la credibilidad de una empresa por su web</p>
-              </div>
-              <div className="border-t border-white/8 pt-6 text-center">
-                <div className="text-5xl font-bold text-rose-400 mb-2">3s</div>
-                <p className="text-snow-muted text-sm">es el tiempo que tiene tu web para causar una buena primera impresión</p>
-              </div>
-            </div>
+            
           </div>
         </div>
 
@@ -103,7 +93,7 @@ export default function ValueProposition() {
             <span className="gradient-text-electric">TeknoBai.</span>
           </h2>
           <p className="reveal text-snow-muted text-lg leading-relaxed mb-12 max-w-2xl">
-            No hacemos webs bonitas. Creamos herramientas digitales diseñadas para hacer crecer tu negocio.
+            No hacemos webs bonitas. Te ayudamos a tener una presencia online de la que puedas estar orgulloso. No te preocuper por tu imagen, esta todo controlado.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {results.map((r, i) => {
@@ -131,13 +121,13 @@ export default function ValueProposition() {
               <h2 className="reveal font-display text-white mb-6" style={{fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700}}>
                 No somos una agencia más.
                 <br />
-                <span className="italic text-emerald-400">Somos tu equipo digital.</span>
+                <span className="italic text-emerald-400">Somos tu amigo y vecino TeknoBai.</span>
               </h2>
               <p className="reveal text-snow-muted text-lg leading-relaxed mb-8">
-                Combinamos diseño premium, tecnología moderna e inteligencia artificial para crear experiencias digitales al nivel de las marcas más reconocidas — adaptadas a negocios locales como el tuyo.
+                Identificamos los puntos débiles de tu web, los analizamos y creamos algo que encaje con lo que quieres. No vendemos webs, te proporcionamos una experiencia digital como la que nunca has tenido.
               </p>
               <a href="#contacto" className="reveal inline-flex items-center gap-2 bg-electric text-white font-semibold px-7 py-3.5 rounded-full hover:bg-electric-bright transition-all duration-200 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5">
-                Quiero mi web ahora
+                Quiero mi web yaaa!!
                 <ArrowRight size={16} />
               </a>
             </div>

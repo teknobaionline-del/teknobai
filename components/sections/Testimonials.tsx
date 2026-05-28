@@ -70,6 +70,10 @@ export default function Testimonials() {
             <br />
             <span className="gradient-text-electric">ya lo vivieron.</span>
           </h2>
+          <h3 className="reveal text-headline font-display text-white mb-4">
+            (reseñas que también son irreales)
+            <br />
+          </h3>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">

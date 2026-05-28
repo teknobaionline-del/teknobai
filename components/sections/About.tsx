@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react";
 import { Target, Eye, Heart, Lightbulb } from "lucide-react";
 
 const values = [
-  { icon: Target, title: "Obsesión por resultados", desc: "No entregamos proyectos. Entregamos crecimiento medible." },
+  { icon: Target, title: "Obsesión por tu satisfacción", desc: "No entregamos proyectos mal hechos. Todo lo que te entreguemos estará a la perfección." },
   { icon: Eye, title: "Visión de futuro", desc: "Construimos pensando en los próximos 5 años, no en el mes que viene." },
   { icon: Heart, title: "Compromiso real", desc: "Tu éxito es el nuestro. Trabajamos como si fuéramos tu equipo interno." },
-  { icon: Lightbulb, title: "Innovación continua", desc: "Siempre a la vanguardia para que tu empresa lo esté también." },
+  { icon: Lightbulb, title: "Innovación continua", desc: "En caso de que descubramos un programa más rápido o mejor, actualizaremos tu web para no quedarte atras." },
 ];
 
 export default function About() {
@@ -52,19 +52,6 @@ export default function About() {
             Sin humos, sin letra pequeña — solo trabajo bien hecho y resultados reales para 
             negocios como el tuyo.
             </p>
-            <div className="reveal flex flex-wrap gap-5">
-              {[
-                { v: "2026", l: "Fundada" },
-                { v: "2", l: "Especialistas" },
-                { v: "1", l: "Países" },
-                { v: "€2K", l: "Valor creado" },
-              ].map((s) => (
-                <div key={s.l} className="glass rounded-xl px-5 py-3.5 border border-white/8 text-center">
-                  <div className="text-xl font-bold gradient-text-electric">{s.v}</div>
-                  <div className="text-[10px] text-snow-dim mt-0.5 font-medium">{s.l}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right — values */}

@@ -32,7 +32,7 @@ export default function CookieBanner() {
           </div>
           <div>
             <p className="text-sm font-semibold text-white mb-1">
-              Usamos cookies 🍪
+              Amamaren gailetak onartu :)
             </p>
             <p className="text-xs text-snow-muted leading-relaxed">
               Utilizamos cookies propias para mejorar tu experiencia. 

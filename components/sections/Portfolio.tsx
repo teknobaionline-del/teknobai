@@ -91,13 +91,13 @@ export default function Portfolio() {
               Portfolio
             </div>
             <h2 className="reveal text-headline font-display text-white">
-              Proyectos que
+              Galería de
               <br />
-              <span className="gradient-text-electric">generan resultados.</span>
+              <span className="gradient-text-electric">proyectos terminados.</span>
             </h2>
           </div>
           <p className="reveal text-snow-muted text-base max-w-xs md:text-right leading-relaxed">
-            Cada proyecto es una historia de crecimiento real. Métricas reales, impacto real.
+            Estas reseñas no son reales, tan solo estan para darle estatus a nuestra web :)
           </p>
         </div>
 

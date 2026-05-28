@@ -213,7 +213,7 @@ body {
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translate(-50%); }
 }
 .section-dark {
   background-color: #050508;
@@ -227,4 +227,8 @@ body {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), rgba(139,92,246,0.3), transparent);
   margin: 0;
+}
+
+.navbar-solid {
+  background: #0a0a0a;
 }

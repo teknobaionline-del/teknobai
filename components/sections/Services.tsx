@@ -7,9 +7,9 @@ const services = [
     icon: Globe,
     label: "01",
     slug: "desarrollo-web",
-    title: "Desarrollo Web Premium",
-    description: "Webs de alto rendimiento que convierten visitas en clientes. Diseño exclusivo, velocidad extrema y experiencia de usuario excepcional.",
-    features: ["Next.js / React", "Diseño a medida", "CMS integrado", "Velocidad máxima"],
+    title: "Webs locales y cercanas",
+    description: "Webs de alto rendimiento que convierten visitas en clientes. Diseño personalizado a tus necesidades, velocidad, fluided y una experiencia excepcional.",
+    features: ["Next.js / React", "HTML", "CMS integrado", "Transparencia"],
     gradient: "from-electric/20 via-transparent to-transparent",
     glow: "shadow-glow",
     accent: "text-electric-bright",
@@ -21,7 +21,7 @@ const services = [
     slug: "chatbots-ia",
     comingSoon: true,
     title: "Chatbots con IA",
-    description: "Asistentes virtuales inteligentes que atienden a tus clientes 24/7, resuelven dudas y aumentan las conversiones automáticamente.",
+    description: "Asistentes virtuales tan inteligentes y complejos que todavía no hemos sido capaces de programarlos. Atienden a tus clientes 24/7, resuelven dudas y aumentan las conversiones automáticamente.",
     features: ["GPT-4 / Claude", "Integración web", "Multilenguaje", "Analytics"],
     gradient: "from-violet-brand/20 via-transparent to-transparent",
     glow: "shadow-glow-violet",
@@ -34,7 +34,7 @@ const services = [
     slug: "agentes-ia",
     comingSoon: true,
     title: "Agentes de IA",
-    description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana.",
+    description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana. Otra de las cosas que se nos han ido de las manos y no dan más que errores :)",
     features: ["Agentes autónomos", "Integración APIs", "Workflows IA", "Monitoreo"],
     gradient: "from-cyan-brand/20 via-transparent to-transparent",
     glow: "shadow-glow-cyan",
@@ -71,12 +71,12 @@ export default function Services() {
             Servicios
           </div>
           <h2 className="reveal text-headline font-display text-white mb-5">
-            Todo lo que tu negocio
+            Los únicos productos digitales
             <br />
-            <span className="gradient-text-electric">necesita para crecer.</span>
+            <span className="gradient-text-electric">que necesitas para crecer.</span>
           </h2>
           <p className="reveal text-snow-muted text-lg leading-relaxed">
-            Un stack completo de soluciones tecnológicas diseñado para empresas que no se conforman con lo mediocre.
+            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones a tus problemas. Y no, no somos superheroes, somos Liher y Oier.
           </p>
         </div>
 

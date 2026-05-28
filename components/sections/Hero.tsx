@@ -35,13 +35,13 @@ export default function Hero() {
               className="font-display font-bold tracking-tighter text-white mb-6 leading-[1.05]"
               style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', opacity: 0, transform: "translateY(32px)", transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)" }}
             >
-              Tecnología que
+              Las webs
               <br />
               <span style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #34d399 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                transforma
+                dinosaurio
               </span>
               <br />
-              tu negocio.
+              ya no funcionan.
             </h1>
 
             <p
@@ -49,8 +49,7 @@ export default function Hero() {
               className="text-lg text-snow-muted leading-relaxed mb-10"
               style={{ opacity: 0, transform: "translateY(24px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
             >
-              Webs premium, automatización con IA y agentes inteligentes.
-              Ayudamos a negocios reales a crecer con tecnología de alto nivel.
+              Webs limpias, ordenadas y cercanas, al igual que tu negocio. Ayudamos a negocios locales y tradicionales a reconstruir su imagen y dar un salto en el mundo teknológico.
             </p>
 
             <div
