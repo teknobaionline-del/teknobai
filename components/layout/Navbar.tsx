@@ -1,24 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, Zap } from "lucide-react";
 
 const navLinks = [
+  { label: "Inicio", href: "#" },
+  { label: "Propuesta", href: "#valor" },
   { label: "Servicios", href: "#servicios" },
-  { label: "IA", href: "#ia" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Nosotros", href: "#nosotros" },
+  { label: "Equipo", href: "#nosotros" },
+  { label: "Testimonios", href: "#testimonios" },
+  { label: "Reseñas", href: "#reseñas" },
   { label: "Blog", href: "#blog" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
 
   return (
     <>
@@ -41,15 +37,7 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-
-      <header
-        className={`fixed top-8 left-0 right-0 z-40 transition-all duration-500 ${
-          scrolled
-            ? "glass border-b border-white/8 shadow-lg shadow-black/30"
-            : "bg-transparent"
-        }`}
-      >
-        <nav className="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
+        <header className="fixed top-8 left-0 right-0 z-40 border-b border-white/20 shadow-lg shadow-black/30" style={{ backgroundColor: '#0a0a0a' }}>        <nav className="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <div className="relative w-8 h-8">
