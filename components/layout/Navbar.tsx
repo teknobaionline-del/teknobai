@@ -31,7 +31,7 @@ export default function Navbar() {
               className="inline-flex items-center gap-3 px-12 text-sm text-white hover:text-blue-200 transition-colors"
             >
               <span className="bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">¡Nuevas ofertas!</span>
-              <span>Descuentos de hasta el 40% para los primeros 20 clientes</span>
+              <span>Descuentos de hasta el 20% para paquetes de comerciantes</span>
               <span className="text-blue-300">·</span>
             </a>
           ))}
