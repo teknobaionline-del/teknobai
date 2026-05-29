@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
+import PhotoCover from "@/components/sections/PhotoCover";
 import ValueProposition from "@/components/sections/ValueProposition";
 import Services from "@/components/sections/Services";
 import Portfolio from "@/components/sections/Portfolio";
@@ -14,7 +15,8 @@ export default function Home() {
   return (
     <main className="relative bg-void overflow-x-hidden">
       <Navbar />
-
+      <PhotoCover />
+      <div className="section-divider" />
       <div className="section-dark">
         <Hero />
       </div>
