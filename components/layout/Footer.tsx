@@ -1,4 +1,4 @@
-import { Zap, Twitter, Linkedin, Instagram, Github, ArrowUpRight } from "lucide-react";
+import { Zap, Twitter, Linkedin, Instagram, Github, } from "lucide-react";
 
 const nav = {
   Servicios: [
@@ -11,8 +11,8 @@ const nav = {
   ],
   Legal: [
     { label: "Política de privacidad", href: "/privacidad" },
-    { label: "Aviso legal", href: "#" },
-    { label: "Cookies", href: "#" },
+    { label: "Aviso legal", href: "/aviso-legal" },
+    { label: "Cookies", href: "/privacidad" },
   ],
 };
 
@@ -46,17 +46,6 @@ export default function Footer() {
             <p className="text-sm text-snow-dim leading-relaxed max-w-xs mb-6">
               Tecnología que transforma negocios. Desarrollo web, IA y automatización para empresas que quieren liderar.
             </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="tu@email.com"
-                className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/40 transition-colors"
-              />
-              <button className="bg-electric text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-electric-bright transition-colors flex-shrink-0">
-                <ArrowUpRight size={14} />
-              </button>
-            </div>
-            <p className="text-[10px] text-snow-dim/60 mt-1.5">Insights de tecnología, cada semana.</p>
           </div>
 
           {/* Nav columns */}
