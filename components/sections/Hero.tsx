@@ -93,21 +93,7 @@ export default function Hero() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.15) 0%, transparent 50%, rgba(139,92,246,0.15) 100%)' }} />
-              <div
-                className="absolute bottom-6 left-6 right-6 rounded-2xl p-4"
-                style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm font-semibold text-white mb-0.5">Tecnología que crece contigo</div>
-                    <div className="text-xs text-snow-dim">Webs · IA · Automatización</div>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-xs text-green-400 font-semibold">Disponibles</span>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
 

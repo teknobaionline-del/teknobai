@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { TrendingUp, Shield, Zap, Users, Star, ArrowRight } from "lucide-react";
+import { TrendingUp, Shield, Zap, Users, ArrowRight } from "lucide-react";
 
 const problems = [
   "Pierdes credibilidad ante clientes potenciales",
@@ -17,14 +17,7 @@ const results = [
   { icon: Users, title: "Más reservas", desc: "Sistemas de contacto y reserva integrados para que no pierdas ninguna oportunidad." },
 ];
 
-const reasons = [
-  "Un diseño que encaje con tu negocio",
-  "Enfoque moderno con IA y automatización",
-  "Entrega en menos de 14 días",
-  "Soporte técnico cuando lo necesites",
-  "Precio justo para negocios locales",
-  "Pero sobre todo, TRANSPARENCIA",
-];
+
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -94,19 +87,7 @@ export default function ValueProposition() {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,8,0.8) 0%, rgba(5,5,8,0.2) 60%, transparent 100%)' }} />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="glass rounded-2xl p-4 border border-rose-500/20" style={{ backdropFilter: 'blur(20px)' }}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-rose-500/20 flex items-center justify-center flex-shrink-0">
-                        <span className="text-rose-400 text-sm font-bold">!</span>
-                      </div>
-                      <div>
-                        <div className="text-xs font-bold text-white mb-0.5">Sin web profesional</div>
-                        <div className="text-[10px] text-rose-400">Pierdes el 70% de clientes potenciales</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
             </FadeUp>
           </div>
@@ -164,7 +145,7 @@ export default function ValueProposition() {
                 <h2 className="font-display text-white mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700 }}>
                   No somos una agencia más.
                   <br />
-                  <span className="italic text-emerald-400">Somos tu amigo TeknoBai.</span>
+                  <span className="italic text-emerald-400">Somos tu amigo y vecino TeknoBai.</span>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
@@ -181,36 +162,17 @@ export default function ValueProposition() {
             </div>
 
             {/* FOTO POR QUÉ TEKNOBAI */}
-            <div className="space-y-4">
-              <FadeUp delay={0.2}>
-                <div className="relative h-[280px] rounded-3xl overflow-hidden border border-white/10" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
-                  <img
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-                    alt="Equipo TeknoBai trabajando"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,8,0.7) 0%, transparent 60%)' }} />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="glass rounded-xl p-3 border border-white/10" style={{ backdropFilter: 'blur(20px)' }}>
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-white">Proyecto entregado ✓</span>
-                        <span className="text-[10px] text-emerald-400 font-semibold">En 14 días</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </FadeUp>
-              <div className="space-y-3">
-                {reasons.map((r, i) => (
-                  <FadeUp key={i} delay={0.3 + i * 0.07}>
-                    <div className="flex items-center gap-3 glass rounded-xl px-5 py-3.5 border border-white/6 hover:border-emerald-500/20 transition-colors">
-                      <Star size={14} className="text-emerald-400 fill-emerald-400 flex-shrink-0" />
-                      <span className="text-sm text-snow-muted">{r}</span>
-                    </div>
-                  </FadeUp>
-                ))}
-              </div>
-            </div>
+            <FadeUp delay={0.2}>
+             <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/10" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
+               <img
+                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                 alt="Equipo TeknoBai trabajando"
+                 className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,8,0.7) 0%, transparent 60%)' }} />
+                
+             </div>
+           </FadeUp>
           </div>
         </div>
 

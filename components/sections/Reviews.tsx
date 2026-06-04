@@ -84,38 +84,34 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reseñas" ref={ref} className="relative py-28 md:py-36 bg-surface-soft">
+    <section id="reseñas" ref={ref} className="relative py-28 md:py-36">
       <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-2xl mx-auto px-6">
+
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-sky-accent uppercase tracking-widest mb-4">
-            <span className="w-5 h-px bg-sky-accent" />
+        <div className="text-center mb-12">
+          <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
+            <span className="w-5 h-px bg-electric-bright" />
             Reseñas
-            <span className="w-5 h-px bg-sky-accent" />
+            <span className="w-5 h-px bg-electric-bright" />
           </div>
-          <h2 className="reveal font-display text-4xl md:text-5xl font-700 text-ink tracking-tighter mb-4">
+          <h2 className="reveal font-display text-4xl md:text-5xl font-bold text-white tracking-tighter mb-4">
             Lo que dicen
             <br />
-            <span className="italic text-ink-muted">nuestros clientes.</span>
+            <span className="gradient-text-electric">nuestros clientes.</span>
           </h2>
-          <p className="reveal text-ink-muted text-lg">
+          <p className="reveal text-snow-muted text-lg">
             Opiniones reales de negocios reales.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Reviews list */}
-          <div className="space-y-4">
-            {reviews.length === 0 && (
-              <div className="reveal glass rounded-2xl p-8 border border-white/8 text-center text-snow-muted">
-                Sé el primero en dejar una reseña ✨
-              </div>
-            )}
+        {/* Reviews list */}
+        {reviews.length > 0 && (
+          <div className="space-y-4 mb-10">
             {reviews.map((r, i) => (
               <div
                 key={r.id}
-                className="reveal group glass rounded-2xl p-6 border border-white/8 hover:border-white/14 transition-all duration-300"
+                className="reveal glass rounded-2xl p-6 border border-white/8 hover:border-white/14 transition-all duration-300"
                 style={{ transitionDelay: `${i * 60}ms` }}
               >
                 <div className="flex gap-0.5 mb-3">
@@ -138,97 +134,91 @@ export default function Reviews() {
               </div>
             ))}
           </div>
+        )}
 
-          {/* Form */}
-          <div className="reveal">
-            <div className="glass-strong border-gradient rounded-2xl p-8 border border-white/8">
-              <h3 className="text-lg font-bold text-white mb-6">Deja tu reseña</h3>
-              {sent ? (
-                <div className="py-8 text-center">
-                  <CheckCircle size={40} className="text-emerald-400 mx-auto mb-3" />
-                  <p className="text-white font-semibold mb-1">¡Gracias por tu reseña!</p>
-                  <p className="text-snow-muted text-sm">Tu opinión nos ayuda a mejorar.</p>
-                  <button
-                    onClick={() => setSent(false)}
-                    className="mt-4 text-xs text-sky-accent hover:underline"
-                  >
-                    Dejar otra reseña
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Stars */}
-                  <div>
-                    <label className="block text-xs font-semibold text-snow-muted mb-2">Valoración</label>
-                    <div className="flex gap-1">
-                      {Array.from({ length: 5 }).map((_, j) => (
-                        <button
-                          type="button"
-                          key={j}
-                          onClick={() => setRating(j + 1)}
-                          onMouseEnter={() => setHover(j + 1)}
-                          onMouseLeave={() => setHover(0)}
-                          className="transition-transform hover:scale-110"
-                        >
-                          <Star
-                            size={24}
-                            className={
-                              j < (hover || rating)
-                                ? "text-amber-400 fill-amber-400"
-                                : "text-snow-dim"
-                            }
-                          />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-snow-muted mb-2">Tu nombre *</label>
-                    <input
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Ej: María García"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-snow-muted mb-2">Tu negocio (opcional)</label>
-                    <input
-                      value={business}
-                      onChange={(e) => setBusiness(e.target.value)}
-                      placeholder="Ej: Peluquería Nova"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold text-snow-muted mb-2">Tu opinión *</label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={text}
-                      onChange={(e) => setText(e.target.value)}
-                      placeholder="Cuéntanos tu experiencia con TeknoBai..."
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all resize-none"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-electric text-white font-semibold py-3.5 rounded-xl hover:bg-electric-bright transition-all duration-200 disabled:opacity-50"
-                  >
-                    <Send size={15} />
-                    {loading ? "Enviando..." : "Enviar reseña"}
-                  </button>
-                </form>
-              )}
+        {/* Form */}
+        <div className="reveal glass-strong rounded-2xl p-8 border border-white/8">
+          <h3 className="text-lg font-bold text-white mb-6">Deja tu reseña</h3>
+          {sent ? (
+            <div className="py-8 text-center">
+              <CheckCircle size={40} className="text-emerald-400 mx-auto mb-3" />
+              <p className="text-white font-semibold mb-1">¡Gracias por tu reseña!</p>
+              <p className="text-snow-muted text-sm">Tu opinión nos ayuda a mejorar.</p>
+              <button
+                onClick={() => setSent(false)}
+                className="mt-4 text-xs text-electric-bright hover:underline"
+              >
+                Dejar otra reseña
+              </button>
             </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-snow-muted mb-2">Valoración</label>
+                <div className="flex gap-1">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <button
+                      type="button"
+                      key={j}
+                      onClick={() => setRating(j + 1)}
+                      onMouseEnter={() => setHover(j + 1)}
+                      onMouseLeave={() => setHover(0)}
+                      className="transition-transform hover:scale-110"
+                    >
+                      <Star
+                        size={24}
+                        className={j < (hover || rating) ? "text-amber-400 fill-amber-400" : "text-snow-dim"}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu nombre *</label>
+                <input
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Ej: María García"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu negocio (opcional)</label>
+                <input
+                  value={business}
+                  onChange={(e) => setBusiness(e.target.value)}
+                  placeholder="Ej: Peluquería Nova"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu opinión *</label>
+                <textarea
+                  required
+                  rows={4}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Cuéntanos tu experiencia con TeknoBai..."
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full inline-flex items-center justify-center gap-2 bg-electric text-white font-semibold py-3.5 rounded-xl hover:bg-electric-bright transition-all duration-200 disabled:opacity-50"
+              >
+                <Send size={15} />
+                {loading ? "Enviando..." : "Enviar reseña"}
+              </button>
+            </form>
+          )}
         </div>
+
       </div>
     </section>
   );
