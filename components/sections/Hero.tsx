@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -49,7 +49,7 @@ export default function Hero() {
               className="text-lg text-snow-muted leading-relaxed mb-10"
               style={{ opacity: 0, transform: "translateY(24px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
             >
-              Webs limpias, ordenadas y cercanas, al igual que tu negocio. Ayudamos a negocios locales y tradicionales a reconstruir su imagen y dar un salto en el mundo teknológico.
+              Webs limpias, ordenadas y cercanas, al igual que tu negocio. Ayudamos a negocios locales y tradicionales a reconstruir su imagen y dar un salto en el mundo tecnológico.
             </p>
 
             <div
@@ -65,15 +65,7 @@ export default function Hero() {
                 Empezar ahora
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a
-                href="#portfolio"
-                className="group inline-flex items-center gap-3 text-white font-medium px-6 py-3.5 rounded-full border border-white/10 bg-white/4 hover:bg-white/8 transition-all duration-200"
-              >
-                <div className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center">
-                  <Play size={9} fill="currentColor" className="ml-0.5" />
-                </div>
-                Ver proyectos
-              </a>
+              
             </div>
 
           </div>

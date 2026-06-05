@@ -111,7 +111,7 @@ function ContactForm() {
                 <span className="text-xs font-semibold text-white">Disponibles ahora</span>
               </div>
               <p className="text-xs text-snow-muted leading-relaxed">
-                Respuesta garantizada en menos de 24h laborables. Para urgencias, WhatsApp.
+                Respuesta garantizada en menos de 24h. Para urgencias, WhatsApp.
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-[10px] text-snow-dim">
                 {["✓ Presupuesto gratuito", "✓ Sin permanencia", "✓ Sin letra pequeña"].map(t => (

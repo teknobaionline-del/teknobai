@@ -76,7 +76,7 @@ export default function Services() {
             <span className="gradient-text-electric">que necesitas para crecer.</span>
           </h2>
           <p className="reveal text-snow-muted text-lg leading-relaxed">
-            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones a tus problemas. Y no, no somos superheroes, somos Liher y Oier.
+            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones a tus problemas. Y no, no somos superheroes, somos Liher, Oier y Iker.
           </p>
         </div>
 

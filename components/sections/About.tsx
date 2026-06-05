@@ -41,13 +41,13 @@ export default function About() {
               <span className="gradient-text-electric">Somos tu equipo tech.</span>
             </h2>
             <p className="reveal text-snow-muted text-lg leading-relaxed mb-5">
-            Somos Oier, Iker y Liher, dos estudiantes de bachillerato de la margen izquierda del Nervión. 
+            Somos Oier, Iker y Liher, tres estudiantes de bachillerato de la margen izquierda del Nervión. 
             Empezamos TeknoBai porque vimos que muchos negocios de nuestro barrio — la peluquería 
             de la esquina, el bar de toda la vida, el taller del padre de un amigo — no tenían 
             presencia digital o la que tenían era una pena.
            </p>
             <p className="reveal text-snow-muted leading-relaxed mb-8">
-            No somos una gran agencia ni pretendemos serlo. Somos dos chavales que saben lo que 
+            No somos una gran agencia ni pretendemos serlo. Somos tres chavales que saben lo que 
             hacen, que se toman cada proyecto en serio y que van a estar ahí cuando nos necesites. 
             Sin humos, sin letra pequeña — solo trabajo bien hecho y resultados reales para 
             negocios como el tuyo.

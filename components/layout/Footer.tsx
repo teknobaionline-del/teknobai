@@ -6,7 +6,6 @@ const nav = {
   ],
   Empresa: [
     { label: "Sobre nosotros", href: "#nosotros" },
-    { label: "Portfolio", href: "#portfolio" },
     { label: "Blog", href: "#blog" },
   ],
   Legal: [
@@ -19,8 +18,7 @@ const nav = {
 const socials = [
   { icon: Twitter, href: "https://x.com/TeknoBai", label: "Twitter" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/teknobai-online-b391ba412/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/teknobai.online", label: "Instagram" },
-  { icon: Github, href: "https://github.com/teknobai", label: "GitHub" },
+  { icon: Instagram, href: "https://instagram.com/teknobai.online", label: "Instagram" }
 ];
 
 export default function Footer() {
@@ -43,9 +41,7 @@ export default function Footer() {
                 Tekno<span className="gradient-text-electric">Bai</span>
               </span>
             </a>
-            <p className="text-sm text-snow-dim leading-relaxed max-w-xs mb-6">
-              Tecnología que transforma negocios. Desarrollo web, IA y automatización para empresas que quieren liderar.
-            </p>
+            
           </div>
 
           {/* Nav columns */}
