@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { TrendingUp, Shield, Zap, Users, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const problems = [
   "Pierdes credibilidad ante clientes potenciales",
@@ -11,24 +11,17 @@ const problems = [
 ];
 
 const results = [
-  { icon: TrendingUp, title: "Más clientes", desc: "Tu web trabaja por ti 24/7 atrayendo nuevos clientes mientras tú te dedicas a tu negocio." },
-  { icon: Shield, title: "Más confianza", desc: "Una imagen profesional y cercana genera confianza instantánea." },
-  { icon: Zap, title: "Más velocidad", desc: "Webs rápidas, modernas, fluidas y optimizadas. Lista en menos de 14 días." },
-  { icon: Users, title: "Más reservas", desc: "Sistemas de contacto y reserva integrados para que no pierdas ninguna oportunidad." },
+  { title: "Más clientes",   desc: "Tu web trabaja por ti 24/7 atrayendo nuevos clientes mientras tú te dedicas a tu negocio." },
+  { title: "Más confianza",  desc: "Una imagen profesional y cercana genera confianza instantánea." },
+  { title: "Más velocidad",  desc: "Webs rápidas, modernas y optimizadas. Lista en menos de 14 días." },
+  { title: "Más reservas",   desc: "Sistemas de contacto y reserva integrados para que no pierdas ninguna oportunidad." },
 ];
-
-
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}>
       {children}
     </motion.div>
   );
@@ -36,147 +29,132 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function ValueProposition() {
   return (
-    <section id="valor" className="relative py-28 md:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-void via-ink/60 to-void" />
-      <div className="absolute inset-0 grid-lines opacity-20" />
+    <div id="valor">
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      {/* ── INTRO STRIP ───────────────────────────── */}
+      <div className="border-b border-[#e5e5e5] px-8 py-12 bg-white">
+        <p className="text-2xl md:text-3xl leading-snug max-w-2xl" style={{ fontFamily: "Georgia, serif" }}>
+          <em className="text-[#2563eb]">La agencia de los negocios de barrio.</em><br />
+          <span className="font-sans font-bold uppercase tracking-tight not-italic text-[#2563eb]">Sin humos. Sin letra pequeña.</span><br />
+          <em className="text-[#2563eb]">Solo trabajo bien hecho.</em>
+        </p>
+      </div>
 
-        {/* EL PROBLEMA */}
-        <div className="mb-32">
+      {/* ── EL PROBLEMA ───────────────────────────── */}
+      <section className="border-b border-[#e5e5e5] bg-[#f5f0e8]">
+        <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 uppercase tracking-widest mb-4">
-              <span className="w-5 h-px bg-rose-400" />
-              El problema
-            </div>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">El problema</span>
           </FadeUp>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <FadeUp delay={0.1}>
-                <h2 className="font-display text-white mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700 }}>
-                  Sin web profesional,
-                  <br />
-                  <span className="italic text-rose-400">tu negocio es prehistórico.</span>
+                <h2 className="text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
+                  <span className="text-[#2563eb]">Sin web profesional,</span><br />
+                  <em className="text-[#e03] not-italic" style={{ fontStyle: "italic" }}>tu negocio es prehistórico.</em>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="text-snow-muted text-lg leading-relaxed mb-8">
+                <p className="text-sm text-[#777] leading-relaxed mb-8 font-sans">
                   Digan lo que digan, la primera imagen es vital. En menos de 3 segundos, un cliente potencial decide si confía en ti o se va a la competencia.
                 </p>
               </FadeUp>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {problems.map((p, i) => (
-                  <FadeUp key={i} delay={0.3 + i * 0.08}>
-                    <li className="flex items-start gap-3 text-sm text-snow-muted">
-                      <span className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-rose-400" />
-                      </span>
+                  <FadeUp key={i} delay={0.3 + i * 0.07}>
+                    <li className="flex items-start gap-4 text-sm text-[#777] font-sans">
+                      <span className="w-px h-5 bg-[#e03]/40 flex-shrink-0 mt-0.5" />
                       {p}
                     </li>
                   </FadeUp>
                 ))}
               </ul>
             </div>
-
-            {/* FOTO EL PROBLEMA */}
+            {/* FOTO — reemplaza por vuestra foto cuando la tengáis */}
             <FadeUp delay={0.2}>
-              <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/10" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
+              <div className="h-[420px] overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.10)" }}>
                 <img
                   src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80"
                   alt="Negocio sin presencia digital"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,8,0.8) 0%, rgba(5,5,8,0.2) 60%, transparent 100%)' }} />
-                
               </div>
             </FadeUp>
           </div>
         </div>
+      </section>
 
-        {/* LA SOLUCIÓN */}
-        <div className="mb-32">
+      {/* ── LA SOLUCIÓN ───────────────────────────── */}
+      <section className="border-b border-[#e5e5e5] bg-white">
+        <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
-              <span className="w-5 h-px bg-electric-bright" />
-              La solución
-            </div>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">La solución</span>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <h2 className="font-display text-white mb-4" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700 }}>
-              Lo que consigues con
-              <br />
-              <span className="gradient-text-electric">TeknoBai.</span>
+            <h2 className="text-3xl md:text-4xl leading-[1.1] mb-4" style={{ fontFamily: "Georgia, serif" }}>
+              Lo que consigues con{" "}
+              <span className="font-sans font-bold uppercase not-italic text-[#2563eb]">TeknoBai.</span>
             </h2>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="text-snow-muted text-lg leading-relaxed mb-12 max-w-2xl">
+            <p className="text-sm text-[#777] leading-relaxed mb-14 max-w-xl font-sans">
               No hacemos webs bonitas. Te ayudamos a tener una presencia online de la que puedas estar orgulloso.
             </p>
           </FadeUp>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {results.map((r, i) => {
-              const Icon = r.icon;
-              return (
-                <FadeUp key={r.title} delay={0.1 + i * 0.1}>
-                  <div className="group glass rounded-2xl p-6 border border-white/6 hover:border-electric/30 hover:bg-electric/5 transition-all duration-300 cursor-default h-full">
-                    <div className="w-10 h-10 rounded-xl bg-electric/15 flex items-center justify-center mb-4 group-hover:bg-electric/25 transition-colors">
-                      <Icon size={18} className="text-electric-bright" />
-                    </div>
-                    <h3 className="text-base font-bold text-white mb-2">{r.title}</h3>
-                    <p className="text-xs text-snow-muted leading-relaxed">{r.desc}</p>
-                  </div>
-                </FadeUp>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#e5e5e5]">
+            {results.map((r, i) => (
+              <FadeUp key={r.title} delay={0.1 + i * 0.08}>
+                <div className={`p-8 h-full border-r border-[#e5e5e5] last:border-r-0 ${i % 2 === 0 ? "bg-white" : "bg-[#f5f0e8]"}`}>
+                  <div className="text-[32px] font-bold text-[#e5e5e5] font-sans mb-4 tracking-tight">0{i+1}</div>
+                  <h3 className="text-sm font-bold text-[#111] font-sans mb-2 uppercase tracking-wide">{r.title}</h3>
+                  <p className="text-xs text-[#999] leading-relaxed font-sans">{r.desc}</p>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </div>
+      </section>
 
-        {/* POR QUÉ TEKNOBAI */}
-        <div>
+      {/* ── POR QUÉ TEKNOBAI ──────────────────────── */}
+      <section className="border-b border-[#e5e5e5] bg-[#f5f0e8]">
+        <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-4">
-              <span className="w-5 h-px bg-emerald-400" />
-              Por qué TeknoBai
-            </div>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Por qué TeknoBai</span>
           </FadeUp>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <FadeUp delay={0.1}>
-                <h2 className="font-display text-white mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: 700 }}>
-                  No somos una agencia más.
-                  <br />
-                  <span className="italic text-emerald-400">Somos tu amigo y vecino TeknoBai.</span>
+                <h2 className="text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
+                  <span className="text-[#2563eb]">No somos una agencia más.</span><br />
+                  <em className="text-[#2563eb]">Somos tu amigo y vecino TeknoBai.</em>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="text-snow-muted text-lg leading-relaxed mb-8">
+                <p className="text-sm text-[#777] leading-relaxed mb-10 font-sans">
                   Identificamos los puntos débiles de tu web, los analizamos y creamos algo que encaje con lo que quieres. No vendemos webs, te proporcionamos una experiencia digital como la que nunca has tenido.
                 </p>
               </FadeUp>
               <FadeUp delay={0.3}>
-                <a href="#contacto" className="inline-flex items-center gap-2 bg-electric text-white font-semibold px-7 py-3.5 rounded-full hover:bg-electric-bright transition-all duration-200 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5">
+                <a href="#contacto" className="group inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#111] hover:text-[#2563eb] transition-colors font-sans border-b border-[#111] hover:border-[#2563eb] pb-1">
                   Quiero mi web yaaa!!
-                  <ArrowRight size={16} />
+                  <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </FadeUp>
             </div>
-
-            {/* FOTO POR QUÉ TEKNOBAI */}
+            {/* FOTO — reemplaza por vuestra foto cuando la tengáis */}
             <FadeUp delay={0.2}>
-             <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/10" style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
-               <img
-                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-                 alt="Equipo TeknoBai trabajando"
-                 className="w-full h-full object-cover"
+              <div className="h-[420px] overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.08)" }}>
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+                  alt="Equipo TeknoBai trabajando"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,8,0.7) 0%, transparent 60%)' }} />
-                
-             </div>
-           </FadeUp>
+              </div>
+            </FadeUp>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+    </div>
   );
 }

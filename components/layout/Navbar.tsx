@@ -1,116 +1,106 @@
 "use client";
-import { useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Inicio", href: "#" },
-  { label: "Propuesta", href: "#valor" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Equipo", href: "#nosotros" },
+  { label: "Inicio",      href: "#" },
+  { label: "Propuesta",   href: "#valor" },
+  { label: "Servicios",   href: "#servicios" },
+  { label: "Equipo",      href: "#nosotros" },
   { label: "Testimonios", href: "#testimonios" },
-  { label: "Reseñas", href: "#reseñas" },
-  { label: "Blog", href: "#blog" },
+  { label: "Reseñas",     href: "#reseñas" },
+  { label: "Blog",        href: "#blog" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <>
-      {/* Banner oferta */}
-      <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden bg-gradient-to-r from-[#1e3a5f] via-[#1e40af] to-[#1e3a5f] py-2">
-        <div
-          className="flex whitespace-nowrap"
-          style={{ animation: 'marquee 20s linear infinite' }}
-        >
-          {[...Array(12)].map((_, i) => (
-            <a
-              key={i}
-              href="#contacto"
-              className="inline-flex items-center gap-3 px-12 text-sm text-white hover:text-blue-200 transition-colors"
-            >
-              <span className="bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">¡Nuevas ofertas!</span>
-              <span>Descuentos de hasta el 20% para paquetes de comerciantes</span>
-              <span className="text-blue-300">·</span>
-            </a>
-          ))}
-        </div>
-      </div>
-        <header className="fixed top-8 left-0 right-0 z-40 border-b border-white/20 shadow-lg shadow-black/30" style={{ backgroundColor: '#0a0a0a' }}>        <nav className="max-w-7xl mx-auto px-6 h-[68px] flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-electric rounded-lg opacity-20 blur-md group-hover:opacity-40 transition-opacity" />
-              <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-electric to-violet-brand flex items-center justify-center">
-                <Zap size={16} className="text-white fill-white" />
-              </div>
-            </div>
-            <span className="text-white font-bold text-lg tracking-tight">
-              Tekno<span className="gradient-text-electric">Bai</span>
-            </span>
-          </a>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-white border-b border-[#e5e5e5]" : "bg-transparent"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-8 h-[60px] flex items-center justify-between">
 
-          {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-1">
-            {navLinks.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className="px-4 py-2 text-sm text-snow-muted hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200 font-medium"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Logo */}
+        <a href="#" className={`font-sans font-bold text-base tracking-[0.16em] uppercase transition-colors duration-300 ${scrolled ? "text-[#111]" : "text-white"}`}>
+          Tekno<span className={scrolled ? "text-[#2563eb]" : "text-white/70"}>Bai</span>
+        </a>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#contacto"
-              className="btn-primary relative inline-flex items-center gap-2 bg-electric text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-electric-bright transition-all duration-200 shadow-glow-sm hover:shadow-glow hover:-translate-y-px"
-            >
-              <span className="relative z-10">Contactar</span>
-              <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse" />
-            </a>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-snow-muted hover:text-white transition-colors"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </nav>
-
-        {/* Mobile menu */}
-        <div
-          className={`md:hidden transition-all duration-300 overflow-hidden glass-strong border-t border-white/8 ${
-            open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
-          <div className="px-6 py-5 flex flex-col gap-1">
-            {navLinks.map((l) => (
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-1">
+          {navLinks.map((l) => (
+            <li key={l.href}>
               <a
-                key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="py-2.5 px-3 text-sm text-snow-muted hover:text-white rounded-lg hover:bg-white/5 transition-all font-medium"
+                className={`px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] transition-colors duration-200 ${
+                  scrolled ? "text-[#999] hover:text-[#111]" : "text-white/65 hover:text-white"
+                }`}
               >
                 {l.label}
               </a>
-            ))}
-            <a
-              href="#contacto"
-              onClick={() => setOpen(false)}
-              className="mt-3 text-center bg-electric text-white text-sm font-semibold px-5 py-3 rounded-full shadow-glow-sm"
-            >
-              Contactar
-            </a>
-          </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA */}
+        <div className="hidden md:flex items-center gap-5">
+          <span className={`text-xs transition-colors duration-300 ${scrolled ? "text-[#ddd]" : "text-white/25"}`}>|</span>
+          <a
+            href="#contacto"
+            className={`text-[10px] font-semibold uppercase tracking-[0.13em] transition-colors duration-200 ${
+              scrolled ? "text-[#111] hover:text-[#2563eb]" : "text-white hover:text-white/70"
+            }`}
+          >
+            Contactar
+          </a>
         </div>
-      </header>
-    </>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setOpen(!open)}
+          className={`md:hidden p-2 transition-colors ${scrolled ? "text-[#111]" : "text-white"}`}
+        >
+          {open ? <X size={18} /> : <Menu size={18} />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+        scrolled ? "bg-white border-t border-[#e5e5e5]" : "bg-[#111]/95 backdrop-blur-md border-t border-white/10"
+      } ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className="px-8 py-6 flex flex-col gap-1">
+          {navLinks.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className={`py-3 text-[10px] font-semibold uppercase tracking-[0.13em] border-b transition-colors ${
+                scrolled
+                  ? "text-[#999] hover:text-[#111] border-[#f0f0f0]"
+                  : "text-white/60 hover:text-white border-white/10"
+              }`}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a
+            href="#contacto"
+            onClick={() => setOpen(false)}
+            className="mt-4 text-[10px] font-semibold uppercase tracking-[0.13em] text-[#2563eb]"
+          >
+            Contactar →
+          </a>
+        </div>
+      </div>
+    </header>
   );
 }

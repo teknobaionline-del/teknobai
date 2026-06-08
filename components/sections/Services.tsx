@@ -1,45 +1,29 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Globe, Bot, Cpu, Zap, Palette, Search, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Globe,
-    label: "01",
+    num: "01",
     slug: "desarrollo-web",
     title: "Webs locales y cercanas",
-    description: "Webs de alto rendimiento que convierten visitas en clientes. Diseño personalizado a tus necesidades, velocidad, fluided y una experiencia excepcional.",
+    description: "Webs de alto rendimiento que convierten visitas en clientes. Diseño personalizado a tus necesidades, velocidad, fluidez y una experiencia excepcional.",
     features: ["Next.js / React", "HTML", "CMS integrado", "Transparencia"],
-    gradient: "from-electric/20 via-transparent to-transparent",
-    glow: "shadow-glow",
-    accent: "text-electric-bright",
-    iconBg: "bg-electric/15",
+    comingSoon: false,
   },
   {
-    icon: Bot,
-    label: "02",
-    slug: "chatbots-ia",
-    comingSoon: true,
+    num: "02",
     title: "Chatbots con IA",
     description: "Asistentes virtuales tan inteligentes y complejos que todavía no hemos sido capaces de programarlos. Atienden a tus clientes 24/7, resuelven dudas y aumentan las conversiones automáticamente.",
     features: ["GPT-4 / Claude", "Integración web", "Multilenguaje", "Analytics"],
-    gradient: "from-violet-brand/20 via-transparent to-transparent",
-    glow: "shadow-glow-violet",
-    accent: "text-violet-soft",
-    iconBg: "bg-violet-brand/15",
+    comingSoon: true,
   },
   {
-    icon: Cpu,
-    label: "03",
-    slug: "agentes-ia",
-    comingSoon: true,
+    num: "03",
     title: "Agentes de IA",
-    description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana. Otra de las cosas que se nos han ido de las manos y no dan más que errores :)",
+    description: "Sistemas autónomos que ejecutan tareas complejas, toman decisiones y operan procesos enteros sin intervención humana.",
     features: ["Agentes autónomos", "Integración APIs", "Workflows IA", "Monitoreo"],
-    gradient: "from-cyan-brand/20 via-transparent to-transparent",
-    glow: "shadow-glow-cyan",
-    accent: "text-cyan-soft",
-    iconBg: "bg-cyan-brand/15",
+    comingSoon: true,
   },
 ];
 
@@ -57,73 +41,66 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="servicios" ref={ref} className="relative py-28 md:py-36">
-      {/* Background */}
-      <div className="absolute inset-0 dot-pattern opacity-30" />
-      <img src="/images/servicios.png" alt="Servicios" className="absolute right-0 bottom-0 w-96 opacity-10 pointer-events-none" />
-      <div className="glow-orb w-[500px] h-[500px] bg-electric left-[-200px] top-1/2 -translate-y-1/2 opacity-8" />
+    <section id="servicios" ref={ref} className="bg-white border-b border-[#e5e5e5]">
+      <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
 
-      <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="max-w-2xl mb-16 md:mb-20">
-          <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
-            <span className="w-5 h-px bg-electric-bright" />
-            Servicios
+        <div className="mb-16">
+          <div className="reveal">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Servicios</span>
           </div>
-          <h2 className="reveal text-headline font-display text-white mb-5">
-            Los únicos productos digitales
-            <br />
-            <span className="gradient-text-electric">que necesitas para crecer.</span>
+          <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
+            <em className="text-[#2563eb]">Los únicos productos digitales</em><br />
+            <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">que necesitas para crecer.</span>
           </h2>
-          <p className="reveal text-snow-muted text-lg leading-relaxed">
-            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones a tus problemas. Y no, no somos superheroes, somos Liher, Oier y Iker.
+          <p className="reveal text-sm text-[#999] mt-4 font-sans max-w-lg">
+            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones. No somos superhéroes — somos Liher, Oier e Iker.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <div
-                key={s.label}
-                className={`reveal reveal-delay-${(i % 3) + 1} group relative glass rounded-2xl p-7 hover:bg-white/6 transition-all duration-500 cursor-default overflow-hidden border border-white/6 hover:border-white/12 ${s.glow} hover:shadow-card-hover`}
-              >
-                {/* Card gradient bg */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${s.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+        {/* Lista numerada */}
+        <div className="divide-y divide-[#e5e5e5] border-y border-[#e5e5e5]">
+          {services.map((s, i) => (
+            <div
+              key={s.num}
+              className={`reveal reveal-delay-${i+1} flex items-start gap-8 py-10 group ${s.comingSoon ? "opacity-45" : ""}`}
+            >
+              {/* Número */}
+              <div className="text-[42px] font-bold text-[#e8e8e8] font-sans tracking-tight leading-none w-16 flex-shrink-0 mt-1">
+                {s.num}
+              </div>
 
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between mb-5">
-                    <div className={`w-11 h-11 rounded-xl ${s.iconBg} flex items-center justify-center`}>
-                      <Icon size={20} className={s.accent} />
-                    </div>
-                    <span className="font-mono text-[11px] text-snow-dim/50">{s.label}</span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white mb-2.5 tracking-tight">{s.title}</h3>
-                  <p className="text-snow-muted text-sm leading-relaxed mb-5">{s.description}</p>
-
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {s.features.map((f) => (
-                      <span key={f} className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/6 text-snow-dim border border-white/8">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-
-                  {s.comingSoon ? (
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/6 border border-white/10 text-snow-dim">
-                      🚀 Coming Soon
+              {/* Contenido */}
+              <div className="flex-1">
+                <div className="flex items-center gap-4 mb-3">
+                  <h3 className="text-base font-bold text-[#111] font-sans uppercase tracking-wide">{s.title}</h3>
+                  {s.comingSoon && (
+                    <span className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#bbb] bg-[#f0f0f0] px-2.5 py-1 font-sans">
+                      Próximamente
                     </span>
-                  ) : (
-                    <a href={`/servicios/${s.slug}`} className={`inline-flex items-center gap-1.5 text-xs font-semibold ${s.accent} hover:gap-2.5 transition-all duration-200`}>
-                      Saber más <ArrowUpRight size={12} />
-                    </a>
                   )}
                 </div>
+                <p className="text-sm text-[#888] leading-relaxed font-sans mb-4 max-w-xl">{s.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {s.features.map(f => (
+                    <span key={f} className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#aaa] border border-[#e5e5e5] px-2.5 py-1 font-sans">
+                      {f}
+                    </span>
+                  ))}
+                </div>
               </div>
-            );
-          })}
+
+              {/* Link */}
+              {!s.comingSoon && (
+                <a
+                  href={`/servicios/${s.slug}`}
+                  className="hidden md:inline-flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-[#999] hover:text-[#111] transition-colors font-sans flex-shrink-0 mt-2 group-hover:text-[#111]"
+                >
+                  Saber más <ArrowRight size={12} />
+                </a>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

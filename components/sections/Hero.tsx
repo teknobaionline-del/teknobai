@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -11,88 +12,78 @@ export default function Hero() {
     items.forEach((item, i) => {
       setTimeout(() => {
         (item as HTMLElement).style.opacity = "1";
-        (item as HTMLElement).style.transform = "translateY(0) scale(1)";
-      }, 300 + i * 150);
+        (item as HTMLElement).style.transform = "translateY(0)";
+      }, 200 + i * 160);
     });
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" ref={ref}>
+    <section ref={ref} className="relative min-h-screen flex flex-col justify-end overflow-hidden">
+
+      {/* FOTO DE FONDO — reemplaza esta URL por vuestra foto de equipo cuando la tengáis */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[#050508]" />
-        <div className="absolute inset-0" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)`, backgroundSize: '40px 40px' }} />
-        <div className="absolute top-[-200px] left-[5%] w-[700px] h-[700px] rounded-full opacity-20" style={{ background: 'radial-gradient(circle, #3b82f6 0%, transparent 70%)', filter: 'blur(60px)', animation: 'float 8s ease-in-out infinite' }} />
-        <div className="absolute top-[-100px] right-[10%] w-[500px] h-[500px] rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #8b5cf6 0%, transparent 70%)', filter: 'blur(80px)', animation: 'float 10s ease-in-out infinite', animationDelay: '2s' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050508]" />
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=85"
+          alt="Equipo TeknoBai"
+          className="w-full h-full object-cover object-center"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.05) 100%)" }}
+        />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-28 pb-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* Contenido */}
+      <div className="relative max-w-7xl mx-auto px-8 pb-14 pt-40 w-full">
 
-          <div className="max-w-xl">
-            <h1
-              data-hero
-              className="font-display font-bold tracking-tighter text-white mb-6 leading-[1.05]"
-              style={{ fontSize: 'clamp(2.8rem, 6vw, 4.5rem)', opacity: 0, transform: "translateY(32px)", transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)" }}
-            >
-              Las webs
-              <br />
-              <span style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #818cf8 50%, #34d399 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                dinosaurio
-              </span>
-              <br />
-              ya no funcionan.
-            </h1>
+        {/* Bienvenido */}
+        <div
+          data-hero
+          className="mb-8"
+          style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.7s cubic-bezier(0.16,1,0.3,1)" }}
+        >
+          <span className="text-[9px] font-semibold uppercase tracking-[0.25em] text-white/50 font-sans">
+            Bienvenido
+          </span>
+          <div className="w-6 h-px bg-white/30 mt-2" />
+        </div>
 
-            <p
-              data-hero
-              className="text-lg text-snow-muted leading-relaxed mb-10"
-              style={{ opacity: 0, transform: "translateY(24px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
-            >
-              Webs limpias, ordenadas y cercanas, al igual que tu negocio. Ayudamos a negocios locales y tradicionales a reconstruir su imagen y dar un salto en el mundo tecnológico.
-            </p>
+        {/* Titular */}
+        <h1
+          data-hero
+          className="mb-10 leading-[0.92]"
+          style={{
+            fontSize: "clamp(3.8rem, 10vw, 8.5rem)",
+            opacity: 0,
+            transform: "translateY(28px)",
+            transition: "all 0.9s cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
+          <span className="block italic font-light text-white" style={{ fontFamily: "Georgia, serif" }}>Webs para</span>
+          <span className="block font-bold uppercase text-white font-sans tracking-tight">la Margen</span>
+          <span className="block italic font-light text-white" style={{ fontFamily: "Georgia, serif" }}>Izquierda</span>
+        </h1>
 
-            <div
-              data-hero
-              className="flex flex-wrap items-center gap-4 mb-12"
-              style={{ opacity: 0, transform: "translateY(24px)", transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}
-            >
-              <a
-                href="#contacto"
-                className="group inline-flex items-center gap-2.5 text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5"
-                style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)', boxShadow: '0 0 30px rgba(59,130,246,0.4)' }}
-              >
-                Empezar ahora
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              
-            </div>
-
-          </div>
-
-          <div
-            data-hero
-            className="relative hidden lg:block h-[580px]"
-            style={{ opacity: 0, transform: "translateY(20px) scale(0.97)", transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)" }}
+        {/* Bajada + CTA */}
+        <div
+          data-hero
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-8"
+          style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)" }}
+        >
+          <p className="text-sm text-white/55 leading-relaxed max-w-xs font-sans">
+            Tres chavales del País Vasco que hacen webs de verdad para negocios como el tuyo. Sin humos, sin letra pequeña.
+          </p>
+          <a
+            href="#contacto"
+            className="group inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-white hover:text-white/60 transition-colors font-sans flex-shrink-0"
           >
-            <div
-              className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10"
-              style={{ boxShadow: '0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.15)', animation: 'float 8s ease-in-out infinite' }}
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
-                alt="Equipo tecnológico premium"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.15) 0%, transparent 50%, rgba(139,92,246,0.15) 100%)' }} />
-              
-            </div>
-          </div>
-
+            Empezar ahora
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050508] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10" />
     </section>
   );
 }

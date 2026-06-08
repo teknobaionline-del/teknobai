@@ -35,9 +35,9 @@ export default function CookieBanner() {
               Aceptar Cookies
             </p>
             <p className="text-xs text-snow-muted leading-relaxed">
-              Utilizamos cookies propias para mejorar tu experiencia. 
+              Utilizamos cookies propias para mejorar tu experiencia.
               Puedes aceptarlas o rechazarlas. Consulta nuestra{" "}
-              <a href="#" className="text-electric-bright underline">
+              <a href="/privacidad" className="text-electric-bright underline">
                 política de privacidad
               </a>.
             </p>
@@ -45,6 +45,7 @@ export default function CookieBanner() {
           <button
             onClick={reject}
             className="text-snow-dim hover:text-white transition-colors flex-shrink-0"
+            aria-label="Cerrar"
           >
             <X size={16} />
           </button>

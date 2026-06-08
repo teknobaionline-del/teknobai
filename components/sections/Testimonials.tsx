@@ -1,39 +1,30 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const testimonials = [
+const featured = [
   {
+    text: "TeknoBai transformó nuestra presencia digital por completo. El agente IA que implementaron ha cualificado más de 400 leads este año solos. Es como tener un comercial trabajando 24/7.",
     name: "Marta Eguren",
     role: "CEO · Vértice Inmobiliaria",
-    avatar: "ME",
-    color: "from-violet-brand to-electric",
-    rating: 5,
-    text: "TeknoBai transformó nuestra presencia digital por completo. El agente IA que implementaron ha cualificado más de 400 leads este año solos. Es como tener un comercial trabajando 24/7.",
-    highlight: "400 leads cualificados",
   },
+  {
+    text: "Las reservas online aumentaron un 68% el primer mes. La web parece de Michelin — eso es exactamente lo que queríamos transmitir. Nuestros clientes siempre lo comentan.",
+    name: "Sara Mendizabal",
+    role: "Directora · Lumina Restaurant",
+  },
+];
+
+const cards = [
   {
     name: "Andoni Urrutia",
     role: "Fundador · FlowDesk",
-    avatar: "AU",
-    color: "from-electric to-cyan-brand",
     rating: 5,
     text: "Lanzamos con un CVR del 8.2% en la landing desde el primer día. El diseño premium que crearon comunica exactamente lo que somos. Levantamos financiación en menos de 3 meses.",
     highlight: "CVR 8.2% día 1",
   },
   {
-    name: "Sara Mendizabal",
-    role: "Directora · Lumina Restaurant",
-    avatar: "SM",
-    color: "from-amber-500 to-rose-500",
-    rating: 5,
-    text: "Las reservas online aumentaron un 68% el primer mes. La web parece de Michelin — eso es exactamente lo que queríamos transmitir. Nuestros clientes siempre lo comentan.",
-    highlight: "+68% reservas online",
-  },
-  {
     name: "Kepa Arrizabalaga",
     role: "Co-fundador · APEX Fitness",
-    avatar: "KA",
-    color: "from-emerald-500 to-electric",
     rating: 5,
     text: "112 nuevas altas en el primer mes de lanzamiento gracias al sistema de captación con IA. El ROI fue brutal — la web se pagó sola en las primeras dos semanas.",
     highlight: "ROI en 2 semanas",
@@ -54,65 +45,59 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonios" ref={ref} className="relative py-28 md:py-36">
-      <div className="absolute inset-0 dot-pattern opacity-20" />
+    <section id="testimonios" ref={ref} className="bg-[#f5f0e8] border-b border-[#e5e5e5]">
+      <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
 
-      <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-          <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
-            <span className="w-5 h-px bg-electric-bright" />
-            Testimonios
-            <span className="w-5 h-px bg-electric-bright" />
+        <div className="mb-16">
+          <div className="reveal">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Testimonios</span>
           </div>
-          <h2 className="reveal text-headline font-display text-white mb-4">
-            Lo que dicen los que
-            <br />
-            <span className="gradient-text-electric">ya lo vivieron.</span>
+          <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
+            <em className="text-[#2563eb]">Lo que dicen los que</em><br />
+            <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">ya lo vivieron.</span>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {testimonials.map((t, i) => (
-            <div
-              key={t.name}
-              className={`reveal reveal-delay-${(i % 2) + 1} group relative glass rounded-2xl p-7 border border-white/6 hover:border-white/12 hover:shadow-card-hover transition-all duration-400 overflow-hidden`}
-            >
-              {/* Subtle gradient */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-5">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <span key={j} className="text-amber-400 text-sm">★</span>
-                ))}
-              </div>
-
-              <p className="text-snow-muted text-sm md:text-base leading-relaxed mb-5">
+        {/* Citas grandes */}
+        <div className="space-y-10 mb-16">
+          {featured.map((t, i) => (
+            <div key={t.name} className={`reveal reveal-delay-${i+1} border-l-2 border-[#ddd] pl-6`}>
+              <p className="text-lg md:text-xl leading-relaxed text-[#333] mb-4" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
                 "{t.text}"
               </p>
-
-              {/* Highlight chip */}
-              <div className="mb-5">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full bg-white/6 text-white border border-white/10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                  {t.highlight}
-                </span>
-              </div>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-5 border-t border-white/8">
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.color} flex items-center justify-center text-xs font-bold text-white flex-shrink-0`}>
-                  {t.avatar}
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-white">{t.name}</div>
-                  <div className="text-xs text-snow-dim">{t.role}</div>
-                </div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#bbb] font-sans">
+                — {t.name}, {t.role}
               </div>
             </div>
           ))}
         </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-0 border border-[#e5e5e5]">
+          {cards.map((t, i) => (
+            <div key={t.name} className={`reveal reveal-delay-${i+1} p-8 bg-white ${i === 0 ? "border-r border-[#e5e5e5]" : ""}`}>
+              <div className="flex gap-0.5 mb-6">
+                {Array.from({ length: t.rating }).map((_, j) => (
+                  <span key={j} className="text-[#c9a84c] text-sm">★</span>
+                ))}
+              </div>
+              <p className="text-sm text-[#666] leading-relaxed mb-6 font-sans" style={{ fontStyle: "italic" }}>
+                "{t.text}"
+              </p>
+              <div className="flex items-center justify-between pt-5 border-t border-[#e5e5e5]">
+                <div>
+                  <div className="text-xs font-bold text-[#111] uppercase tracking-wide font-sans">{t.name}</div>
+                  <div className="text-[10px] text-[#bbb] font-sans mt-0.5">{t.role}</div>
+                </div>
+                <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#2563eb] border border-[#2563eb]/20 bg-[#2563eb]/5 px-2.5 py-1 font-sans">
+                  {t.highlight}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

@@ -1,57 +1,41 @@
-import { Zap, Twitter, Linkedin, Instagram, Github, } from "lucide-react";
+import { Twitter, Linkedin, Instagram } from "lucide-react";
 
 const nav = {
-  Servicios: [
-    { label: "Desarrollo Web", href: "/servicios/desarrollo-web" },
-  ],
-  Empresa: [
-    { label: "Sobre nosotros", href: "#nosotros" },
-    { label: "Blog", href: "#blog" },
-  ],
-  Legal: [
-    { label: "Política de privacidad", href: "/privacidad" },
-    { label: "Aviso legal", href: "/aviso-legal" },
-    { label: "Cookies", href: "/privacidad" },
-  ],
+  Servicios: [{ label: "Desarrollo Web", href: "/servicios/desarrollo-web" }],
+  Empresa:   [{ label: "Sobre nosotros", href: "#nosotros" }, { label: "Blog", href: "#blog" }],
+  Legal:     [{ label: "Política de privacidad", href: "/privacidad" }, { label: "Aviso legal", href: "/aviso-legal" }, { label: "Cookies", href: "/privacidad" }],
 };
 
 const socials = [
-  { icon: Twitter, href: "https://x.com/TeknoBai", label: "Twitter" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/teknobai-online-b391ba412/", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com/teknobai.online", label: "Instagram" }
+  { icon: Twitter,   href: "https://x.com/TeknoBai",                                label: "Twitter" },
+  { icon: Linkedin,  href: "https://www.linkedin.com/in/teknobai-online-b391ba412/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://instagram.com/teknobai.online",                  label: "Instagram" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/8 overflow-hidden">
-      <div className="absolute inset-0 bg-ink/80" />
+    <footer className="bg-[#f5f0e8] border-t border-[#e5e5e5]">
+      <div className="max-w-7xl mx-auto px-8 py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-flex items-center gap-2.5 mb-5 group">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 bg-electric rounded-lg opacity-20 blur-md group-hover:opacity-40 transition-opacity" />
-                <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-electric to-violet-brand flex items-center justify-center">
-                  <Zap size={16} className="text-white fill-white" />
-                </div>
-              </div>
-              <span className="text-white font-bold text-lg tracking-tight">
-                Tekno<span className="gradient-text-electric">Bai</span>
-              </span>
+            <a href="#" className="inline-block font-sans font-bold text-base tracking-[0.16em] uppercase text-[#111] mb-4">
+              Tekno<span className="text-[#2563eb]">Bai</span>
             </a>
-            
+            <p className="text-xs text-[#bbb] leading-relaxed font-sans max-w-xs">
+              Webs profesionales para negocios locales del País Vasco. Simples, rápidas y cercanas.
+            </p>
           </div>
 
-          {/* Nav columns */}
+          {/* Nav */}
           {Object.entries(nav).map(([section, links]) => (
             <div key={section}>
-              <h4 className="text-[10px] font-bold text-white uppercase tracking-widest mb-4">{section}</h4>
+              <h4 className="text-[8px] font-bold text-[#111] uppercase tracking-[0.2em] mb-4 font-sans">{section}</h4>
               <ul className="space-y-2.5">
-                {links.map((l) => (
+                {links.map(l => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-snow-dim hover:text-white transition-colors">
+                    <a href={l.href} className="text-xs text-[#bbb] hover:text-[#111] transition-colors font-sans">
                       {l.label}
                     </a>
                   </li>
@@ -61,13 +45,13 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/8">
-          <p className="text-xs text-snow-dim/60">
+        {/* Bottom */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[#e5e5e5]">
+          <p className="text-[10px] text-[#ccc] font-sans">
             © {new Date().getFullYear()} TeknoBai. Todos los derechos reservados. Hecho con 💙 en el País Vasco.
           </p>
-          <div className="flex items-center gap-3">
-            {socials.map((s) => {
+          <div className="flex items-center gap-2">
+            {socials.map(s => {
               const Icon = s.icon;
               return (
                 <a
@@ -76,9 +60,9 @@ export default function Footer() {
                   aria-label={s.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-snow-dim hover:text-white hover:bg-white/10 hover:border-white/16 transition-all duration-200"
+                  className="w-8 h-8 border border-[#e5e5e5] flex items-center justify-center text-[#ccc] hover:text-[#111] hover:border-[#111] transition-all"
                 >
-                  <Icon size={13} />
+                  <Icon size={12} />
                 </a>
               );
             })}

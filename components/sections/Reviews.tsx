@@ -1,15 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { db } from "@/lib/firebase";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  orderBy,
-  query,
-  Timestamp,
-} from "firebase/firestore";
-import { Star, Send, CheckCircle } from "lucide-react";
+import { collection, addDoc, getDocs, orderBy, query, Timestamp } from "firebase/firestore";
+import { Star, CheckCircle } from "lucide-react";
 
 interface Review {
   id: string;
@@ -46,10 +39,7 @@ export default function Reviews() {
     const fetchReviews = async () => {
       const q = query(collection(db, "reviews"), orderBy("createdAt", "desc"));
       const snapshot = await getDocs(q);
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Review[];
+      const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Review[];
       setReviews(data);
     };
     fetchReviews();
@@ -61,22 +51,12 @@ export default function Reviews() {
     setLoading(true);
     try {
       await addDoc(collection(db, "reviews"), {
-        name,
-        business,
-        text,
-        rating,
+        name, business, text, rating,
         createdAt: Timestamp.now(),
-        date: new Date().toLocaleDateString("es-ES", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        }),
+        date: new Date().toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" }),
       });
       setSent(true);
-      setName("");
-      setBusiness("");
-      setText("");
-      setRating(5);
+      setName(""); setBusiness(""); setText(""); setRating(5);
     } catch (error) {
       console.error(error);
     }
@@ -84,141 +64,134 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reseñas" ref={ref} className="relative py-28 md:py-36">
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      <div className="relative max-w-2xl mx-auto px-6">
+    <section id="reseñas" ref={ref} className="bg-[#f5f0e8] border-b border-[#e5e5e5]">
+      <div className="max-w-7xl mx-auto px-8 py-20 md:py-28">
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="reveal inline-flex items-center gap-2 text-xs font-semibold text-electric-bright uppercase tracking-widest mb-4">
-            <span className="w-5 h-px bg-electric-bright" />
-            Reseñas
-            <span className="w-5 h-px bg-electric-bright" />
+        <div className="mb-16">
+          <div className="reveal">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Reseñas</span>
           </div>
-          <h2 className="reveal font-display text-4xl md:text-5xl font-bold text-white tracking-tighter mb-4">
-            Lo que dicen
-            <br />
-            <span className="gradient-text-electric">nuestros clientes.</span>
+          <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
+            <em className="text-[#2563eb]">Lo que dicen</em><br />
+            <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">nuestros clientes.</span>
           </h2>
-          <p className="reveal text-snow-muted text-lg">
-            Opiniones reales de negocios reales.
-          </p>
+          <p className="reveal text-sm text-[#999] mt-4 font-sans">Opiniones reales de negocios reales.</p>
         </div>
 
-        {/* Reviews list */}
-        {reviews.length > 0 && (
-          <div className="space-y-4 mb-10">
-            {reviews.map((r, i) => (
-              <div
-                key={r.id}
-                className="reveal glass rounded-2xl p-6 border border-white/8 hover:border-white/14 transition-all duration-300"
-                style={{ transitionDelay: `${i * 60}ms` }}
-              >
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Star
-                      key={j}
-                      size={14}
-                      className={j < r.rating ? "text-amber-400 fill-amber-400" : "text-snow-dim"}
-                    />
-                  ))}
-                </div>
-                <p className="text-snow-muted text-sm leading-relaxed mb-4">"{r.text}"</p>
-                <div className="flex items-center justify-between pt-3 border-t border-white/8">
-                  <div>
-                    <div className="text-sm font-semibold text-white">{r.name}</div>
-                    {r.business && <div className="text-xs text-snow-dim">{r.business}</div>}
+        <div className="max-w-2xl mx-auto">
+
+          {/* Reseñas existentes */}
+          {reviews.length > 0 && (
+            <div className="divide-y divide-[#e5e5e5] border-y border-[#e5e5e5] mb-12">
+              {reviews.map((r, i) => (
+                <div key={r.id} className="reveal py-8" style={{ transitionDelay: `${i * 60}ms` }}>
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <Star key={j} size={13} className={j < r.rating ? "text-[#c9a84c] fill-[#c9a84c]" : "text-[#ddd] fill-[#ddd]"} />
+                    ))}
                   </div>
-                  <span className="text-xs text-snow-dim">{r.date}</span>
+                  <p className="text-sm text-[#555] leading-relaxed mb-5 font-sans" style={{ fontStyle: "italic" }}>
+                    "{r.text}"
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-[#111] uppercase tracking-wide font-sans">{r.name}</div>
+                      {r.business && <div className="text-[10px] text-[#bbb] font-sans mt-0.5">{r.business}</div>}
+                    </div>
+                    <span className="text-[10px] text-[#ccc] font-sans">{r.date}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Form */}
-        <div className="reveal glass-strong rounded-2xl p-8 border border-white/8">
-          <h3 className="text-lg font-bold text-white mb-6">Deja tu reseña</h3>
-          {sent ? (
-            <div className="py-8 text-center">
-              <CheckCircle size={40} className="text-emerald-400 mx-auto mb-3" />
-              <p className="text-white font-semibold mb-1">¡Gracias por tu reseña!</p>
-              <p className="text-snow-muted text-sm">Tu opinión nos ayuda a mejorar.</p>
-              <button
-                onClick={() => setSent(false)}
-                className="mt-4 text-xs text-electric-bright hover:underline"
-              >
-                Dejar otra reseña
-              </button>
+              ))}
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-snow-muted mb-2">Valoración</label>
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <button
-                      type="button"
-                      key={j}
-                      onClick={() => setRating(j + 1)}
-                      onMouseEnter={() => setHover(j + 1)}
-                      onMouseLeave={() => setHover(0)}
-                      className="transition-transform hover:scale-110"
-                    >
-                      <Star
-                        size={24}
-                        className={j < (hover || rating) ? "text-amber-400 fill-amber-400" : "text-snow-dim"}
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu nombre *</label>
-                <input
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Ej: María García"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu negocio (opcional)</label>
-                <input
-                  value={business}
-                  onChange={(e) => setBusiness(e.target.value)}
-                  placeholder="Ej: Peluquería Nova"
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-snow-muted mb-2">Tu opinión *</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  placeholder="Cuéntanos tu experiencia con TeknoBai..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-snow-dim/50 focus:outline-none focus:border-electric/50 transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full inline-flex items-center justify-center gap-2 bg-electric text-white font-semibold py-3.5 rounded-xl hover:bg-electric-bright transition-all duration-200 disabled:opacity-50"
-              >
-                <Send size={15} />
-                {loading ? "Enviando..." : "Enviar reseña"}
-              </button>
-            </form>
           )}
-        </div>
 
+          {/* Formulario */}
+          <div className="reveal border border-[#e5e5e5] bg-white p-8">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-8">Deja tu reseña</span>
+
+            {sent ? (
+              <div className="py-12 text-center">
+                <CheckCircle size={36} className="text-emerald-500 mx-auto mb-4" />
+                <p className="text-sm font-bold text-[#111] font-sans mb-1">¡Gracias por tu reseña!</p>
+                <p className="text-xs text-[#999] font-sans mb-6">Tu opinión nos ayuda a mejorar.</p>
+                <button
+                  onClick={() => setSent(false)}
+                  className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb] font-sans border-b border-[#2563eb] pb-0.5"
+                >
+                  Dejar otra reseña
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-7">
+
+                {/* Estrellas */}
+                <div>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Valoración</label>
+                  <div className="flex gap-1.5">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <button
+                        type="button"
+                        key={j}
+                        onClick={() => setRating(j + 1)}
+                        onMouseEnter={() => setHover(j + 1)}
+                        onMouseLeave={() => setHover(0)}
+                        className="transition-transform hover:scale-110"
+                      >
+                        <Star size={22} className={j < (hover || rating) ? "text-[#c9a84c] fill-[#c9a84c]" : "text-[#ddd] fill-[#ddd]"} />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Nombre */}
+                <div>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu nombre *</label>
+                  <input
+                    required
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    placeholder="Ej: María García"
+                    className="w-full bg-transparent border-b border-[#ddd] py-2 text-sm text-[#444] placeholder-[#ccc] focus:outline-none focus:border-[#111] transition-colors font-sans"
+                  />
+                </div>
+
+                {/* Negocio */}
+                <div>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu negocio (opcional)</label>
+                  <input
+                    value={business}
+                    onChange={e => setBusiness(e.target.value)}
+                    placeholder="Ej: Peluquería Nova"
+                    className="w-full bg-transparent border-b border-[#ddd] py-2 text-sm text-[#444] placeholder-[#ccc] focus:outline-none focus:border-[#111] transition-colors font-sans"
+                  />
+                </div>
+
+                {/* Opinión */}
+                <div>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu opinión *</label>
+                  <textarea
+                    required
+                    rows={4}
+                    value={text}
+                    onChange={e => setText(e.target.value)}
+                    placeholder="Cuéntanos tu experiencia con TeknoBai..."
+                    className="w-full bg-transparent border-b border-[#ddd] py-2 text-sm text-[#444] placeholder-[#ccc] focus:outline-none focus:border-[#111] transition-colors font-sans resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-[#111] text-white text-[10px] font-semibold uppercase tracking-[0.16em] py-4 hover:bg-[#333] transition-colors font-sans disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Enviando..." : "Enviar reseña →"}
+                </button>
+              </form>
+            )}
+          </div>
+
+        </div>
       </div>
     </section>
   );
