@@ -58,7 +58,7 @@ export default function Blog() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Insights</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">Conocimiento que</em><br />
+            <em className="text-[#00000]">Conocimiento que</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">marca la diferencia.</span>
           </h2>
         </div>

@@ -50,32 +50,32 @@ export default function Services() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Servicios</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">Los únicos productos digitales</em><br />
+            <em className="text-[#000000]">Los únicos productos digitales</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">que necesitas para crecer.</span>
           </h2>
-          <p className="reveal text-sm text-[#999] mt-4 font-sans max-w-lg">
+          <p className="reveal text-sm text-[#000000] mt-4 font-sans max-w-lg">
             Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones. No somos superhéroes — somos Liher, Oier e Iker.
           </p>
         </div>
 
         {/* Lista numerada */}
-        <div className="divide-y divide-[#e5e5e5] border-y border-[#e5e5e5]">
+        <div className="divide-y divide-[#000000] border-y border-[#000000]">
           {services.map((s, i) => (
             <div
               key={s.num}
               className={`reveal reveal-delay-${i+1} flex items-start gap-8 py-10 group ${s.comingSoon ? "opacity-45" : ""}`}
             >
               {/* Número */}
-              <div className="text-[42px] font-bold text-[#e8e8e8] font-sans tracking-tight leading-none w-16 flex-shrink-0 mt-1">
+              <div className="text-[42px] font-bold text-[#000000] font-sans tracking-tight leading-none w-16 flex-shrink-0 mt-1">
                 {s.num}
               </div>
 
               {/* Contenido */}
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-3">
-                  <h3 className="text-base font-bold text-[#111] font-sans uppercase tracking-wide">{s.title}</h3>
+                  <h3 className="text-base font-bold text-[#000000] font-sans uppercase tracking-wide">{s.title}</h3>
                   {s.comingSoon && (
-                    <span className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#bbb] bg-[#f0f0f0] px-2.5 py-1 font-sans">
+                    <span className="text-[8px] font-bold uppercase tracking-[0.1em] text-[#1D4ED8] bg-[#f0f0f0] px-2.5 py-1 font-sans">
                       Próximamente
                     </span>
                   )}
@@ -83,7 +83,7 @@ export default function Services() {
                 <p className="text-sm text-[#888] leading-relaxed font-sans mb-4 max-w-xl">{s.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.features.map(f => (
-                    <span key={f} className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#aaa] border border-[#e5e5e5] px-2.5 py-1 font-sans">
+                    <span key={f} className="text-[9px] font-semibold uppercase tracking-[0.1em] text-[#374151] border border-[#e5e5e5] px-2.5 py-1 font-sans">
                       {f}
                     </span>
                   ))}

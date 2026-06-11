@@ -56,13 +56,10 @@ function ContactForm() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Empecemos</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">¿Listo para el</em><br />
+            <em className="text-[#000000]">¿Listo para el</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">siguiente nivel?</span>
           </h2>
-          <p className="reveal text-sm text-[#777] leading-relaxed mb-12 font-sans">
-            Primera consulta gratuita. Sin compromisos. Te respondemos en menos de 24 horas.
-          </p>
-
+      
           <div className="reveal space-y-6">
             {[
               { label: "Email",    value: "teknobai.online@gmail.com", href: "mailto:teknobai.online@gmail.com" },
@@ -79,15 +76,7 @@ function ContactForm() {
             ))}
           </div>
 
-          <div className="reveal mt-10 flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-xs font-semibold text-[#111] font-sans">Disponibles ahora</span>
-          </div>
-          <div className="text-[10px] text-[#bbb] font-sans mt-2 space-x-4">
-            <span>✓ Presupuesto gratuito</span>
-            <span>✓ Sin permanencia</span>
-            <span>✓ Sin letra pequeña</span>
-          </div>
+          
         </div>
 
         {/* Derecha — formulario */}
@@ -95,8 +84,8 @@ function ContactForm() {
           {sent ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-20">
               <CheckCircle size={40} className="text-emerald-500 mb-4" />
-              <h3 className="text-xl font-bold text-[#111] font-sans mb-2">¡Mensaje enviado!</h3>
-              <p className="text-sm text-[#999] font-sans">Te contactamos en menos de 24h. ¡Hasta pronto!</p>
+              <h3 className="text-xl font-bold text-[#00000] font-sans mb-2">¡Mensaje enviado!</h3>
+              <p className="text-sm text-[#00000] font-sans">Te contactamos en menos de 24h. ¡Hasta pronto!</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -106,7 +95,7 @@ function ContactForm() {
                   { label: "Email",  placeholder: "tu@empresa.com", type: "email" },
                 ].map(f => (
                   <div key={f.label}>
-                    <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans mb-3">{f.label}</label>
+                    <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans mb-3">{f.label}</label>
                     <input
                       type={f.type}
                       required
@@ -118,7 +107,7 @@ function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans mb-3">¿Qué necesitas?</label>
+                <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans mb-3">¿Qué necesitas?</label>
                 <div className="flex flex-wrap gap-2">
                   {services.map(s => (
                     <button
@@ -138,7 +127,7 @@ function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans mb-3">Cuéntanos tu proyecto</label>
+                <label className="block text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans mb-3">Cuéntanos tu proyecto</label>
                 <textarea
                   rows={4}
                   required

@@ -31,14 +31,7 @@ export default function ValueProposition() {
   return (
     <div id="valor">
 
-      {/* ── INTRO STRIP ───────────────────────────── */}
-      <div className="border-b border-[#e5e5e5] px-8 py-12 bg-white">
-        <p className="text-2xl md:text-3xl leading-snug max-w-2xl" style={{ fontFamily: "Georgia, serif" }}>
-          <em className="text-[#2563eb]">La agencia de los negocios de barrio.</em><br />
-          <span className="font-sans font-bold uppercase tracking-tight not-italic text-[#2563eb]">Sin humos. Sin letra pequeña.</span><br />
-          <em className="text-[#2563eb]">Solo trabajo bien hecho.</em>
-        </p>
-      </div>
+      
 
       {/* ── EL PROBLEMA ───────────────────────────── */}
       <section className="border-b border-[#e5e5e5] bg-[#f5f0e8]">
@@ -50,19 +43,19 @@ export default function ValueProposition() {
             <div>
               <FadeUp delay={0.1}>
                 <h2 className="text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
-                  <span className="text-[#2563eb]">Sin web profesional,</span><br />
-                  <em className="text-[#e03] not-italic" style={{ fontStyle: "italic" }}>tu negocio es prehistórico.</em>
+                  <span className="text-[#00000]">Sin web profesional,</span><br />
+                  <em className="text-[#2563eb] not-italic" style={{ fontStyle: "italic" }}>tu negocio es prehistórico.</em>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="text-sm text-[#777] leading-relaxed mb-8 font-sans">
+                <p className="text-sm text-[#00000] leading-relaxed mb-8 font-sans">
                   Digan lo que digan, la primera imagen es vital. En menos de 3 segundos, un cliente potencial decide si confía en ti o se va a la competencia.
                 </p>
               </FadeUp>
               <ul className="space-y-4">
                 {problems.map((p, i) => (
                   <FadeUp key={i} delay={0.3 + i * 0.07}>
-                    <li className="flex items-start gap-4 text-sm text-[#777] font-sans">
+                    <li className="flex items-start gap-4 text-sm text-[#00000] font-sans">
                       <span className="w-px h-5 bg-[#e03]/40 flex-shrink-0 mt-0.5" />
                       {p}
                     </li>
@@ -97,7 +90,7 @@ export default function ValueProposition() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="text-sm text-[#777] leading-relaxed mb-14 max-w-xl font-sans">
+            <p className="text-sm text-[#00000] leading-relaxed mb-14 max-w-xl font-sans">
               No hacemos webs bonitas. Te ayudamos a tener una presencia online de la que puedas estar orgulloso.
             </p>
           </FadeUp>
@@ -105,9 +98,9 @@ export default function ValueProposition() {
             {results.map((r, i) => (
               <FadeUp key={r.title} delay={0.1 + i * 0.08}>
                 <div className={`p-8 h-full border-r border-[#e5e5e5] last:border-r-0 ${i % 2 === 0 ? "bg-white" : "bg-[#f5f0e8]"}`}>
-                  <div className="text-[32px] font-bold text-[#e5e5e5] font-sans mb-4 tracking-tight">0{i+1}</div>
-                  <h3 className="text-sm font-bold text-[#111] font-sans mb-2 uppercase tracking-wide">{r.title}</h3>
-                  <p className="text-xs text-[#999] leading-relaxed font-sans">{r.desc}</p>
+                  <div className="text-[32px] font-bold text-[#00000] font-sans mb-4 tracking-tight">0{i+1}</div>
+                  <h3 className="text-sm font-bold text-[#00000] font-sans mb-2 uppercase tracking-wide">{r.title}</h3>
+                  <p className="text-xs text-[#00000] leading-relaxed font-sans">{r.desc}</p>
                 </div>
               </FadeUp>
             ))}
@@ -125,12 +118,12 @@ export default function ValueProposition() {
             <div>
               <FadeUp delay={0.1}>
                 <h2 className="text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
-                  <span className="text-[#2563eb]">No somos una agencia más.</span><br />
+                  <span className="text-[#00000]">No somos una agencia más.</span><br />
                   <em className="text-[#2563eb]">Somos tu amigo y vecino TeknoBai.</em>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="text-sm text-[#777] leading-relaxed mb-10 font-sans">
+                <p className="text-sm text-[#00000] leading-relaxed mb-10 font-sans">
                   Identificamos los puntos débiles de tu web, los analizamos y creamos algo que encaje con lo que quieres. No vendemos webs, te proporcionamos una experiencia digital como la que nunca has tenido.
                 </p>
               </FadeUp>

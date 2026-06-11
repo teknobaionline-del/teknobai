@@ -41,13 +41,13 @@ export default function About() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Sobre TeknoBai</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">No somos una agencia.</em><br />
+            <em className="text-[#000000]">No somos una agencia.</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">Somos tu equipo tech.</span>
           </h2>
-          <p className="reveal text-sm text-[#777] leading-relaxed mb-5 font-sans">
+          <p className="reveal text-sm text-[#000000] leading-relaxed mb-5 font-sans">
             Somos Oier, Iker y Liher, tres estudiantes de bachillerato de la margen izquierda del Nervión. Empezamos TeknoBai porque vimos que muchos negocios de nuestro barrio — la peluquería de la esquina, el bar de toda la vida, el taller del padre de un amigo — no tenían presencia digital o la que tenían era una pena.
           </p>
-          <p className="reveal text-sm text-[#777] leading-relaxed font-sans">
+          <p className="reveal text-sm text-[#000000] leading-relaxed font-sans">
             No somos una gran agencia ni pretendemos serlo. Somos tres chavales que saben lo que hacen, que se toman cada proyecto en serio y que van a estar ahí cuando nos necesites. Sin humos, sin letra pequeña — solo trabajo bien hecho y resultados reales para negocios como el tuyo.
           </p>
         </div>
@@ -58,10 +58,10 @@ export default function About() {
           <div className="divide-y divide-[#e5e5e5]">
             {values.map((v, i) => (
               <div key={v.title} className={`reveal reveal-delay-${i+1} flex gap-5 py-6`}>
-                <div className="w-px bg-[#ddd] flex-shrink-0 mt-1" style={{ height: "40px" }} />
+                <div className="w-px bg-[#ddd] flex-shrink-0 mt-1" style={{ height: "54px" }} />
                 <div>
-                  <h4 className="text-xs font-bold text-[#111] uppercase tracking-wide font-sans mb-1">{v.title}</h4>
-                  <p className="text-xs text-[#aaa] leading-relaxed font-sans">{v.desc}</p>
+                  <h5 className="text-xs font-bold text-[#1D4ED8] uppercase tracking-wide font-sans mb-1">{v.title}</h5>
+                  <p className="text-xs text-[#000000] leading-relaxed font-sans">{v.desc}</p>
                 </div>
               </div>
             ))}

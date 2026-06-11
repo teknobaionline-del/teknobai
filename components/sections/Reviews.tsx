@@ -73,10 +73,10 @@ export default function Reviews() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Reseñas</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">Lo que dicen</em><br />
+            <em className="text-[#00000]">Lo que dicen</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">nuestros clientes.</span>
           </h2>
-          <p className="reveal text-sm text-[#999] mt-4 font-sans">Opiniones reales de negocios reales.</p>
+          <p className="reveal text-sm text-[#00000] mt-4 font-sans">Opiniones reales de negocios reales.</p>
         </div>
 
         <div className="max-w-2xl mx-auto">
@@ -108,13 +108,13 @@ export default function Reviews() {
 
           {/* Formulario */}
           <div className="reveal border border-[#e5e5e5] bg-white p-8">
-            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-8">Deja tu reseña</span>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#00000] font-sans block mb-8">Deja tu reseña</span>
 
             {sent ? (
               <div className="py-12 text-center">
                 <CheckCircle size={36} className="text-emerald-500 mx-auto mb-4" />
-                <p className="text-sm font-bold text-[#111] font-sans mb-1">¡Gracias por tu reseña!</p>
-                <p className="text-xs text-[#999] font-sans mb-6">Tu opinión nos ayuda a mejorar.</p>
+                <p className="text-sm font-bold text-[#00000] font-sans mb-1">¡Gracias por tu reseña!</p>
+                <p className="text-xs text-[#00000] font-sans mb-6">Tu opinión nos ayuda a mejorar.</p>
                 <button
                   onClick={() => setSent(false)}
                   className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#2563eb] font-sans border-b border-[#2563eb] pb-0.5"
@@ -127,7 +127,7 @@ export default function Reviews() {
 
                 {/* Estrellas */}
                 <div>
-                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Valoración</label>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans block mb-3">Valoración</label>
                   <div className="flex gap-1.5">
                     {Array.from({ length: 5 }).map((_, j) => (
                       <button
@@ -146,7 +146,7 @@ export default function Reviews() {
 
                 {/* Nombre */}
                 <div>
-                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu nombre *</label>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans block mb-3">Tu nombre *</label>
                   <input
                     required
                     value={name}
@@ -158,7 +158,7 @@ export default function Reviews() {
 
                 {/* Negocio */}
                 <div>
-                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu negocio (opcional)</label>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans block mb-3">Tu negocio (opcional)</label>
                   <input
                     value={business}
                     onChange={e => setBusiness(e.target.value)}
@@ -169,7 +169,7 @@ export default function Reviews() {
 
                 {/* Opinión */}
                 <div>
-                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#bbb] font-sans block mb-3">Tu opinión *</label>
+                  <label className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#00000] font-sans block mb-3">Tu opinión *</label>
                   <textarea
                     required
                     rows={4}

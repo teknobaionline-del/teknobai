@@ -54,7 +54,7 @@ export default function Testimonials() {
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] font-sans block mb-6">Testimonios</span>
           </div>
           <h2 className="reveal text-3xl md:text-4xl leading-[1.1]" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">Lo que dicen los que</em><br />
+            <em className="text-[#00000]">Lo que dicen los que</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">ya lo vivieron.</span>
           </h2>
         </div>

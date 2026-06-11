@@ -60,8 +60,8 @@ export default function Hero() {
           }}
         >
           <span className="block italic font-light text-white" style={{ fontFamily: "Georgia, serif" }}>Webs para</span>
-          <span className="block font-bold uppercase text-white font-sans tracking-tight">la Margen</span>
-          <span className="block italic font-light text-white" style={{ fontFamily: "Georgia, serif" }}>Izquierda</span>
+          <span className="block font-bold uppercase text-white font-sans tracking-tight">negocios</span>
+          <span className="block italic font-light text-white" style={{ fontFamily: "Georgia, serif" }}>locales</span>
         </h1>
 
         {/* Bajada + CTA */}
