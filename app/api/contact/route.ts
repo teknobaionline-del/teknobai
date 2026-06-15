@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
 const rateLimit = new Map<string, { count: number; timestamp: number }>();
 const LIMIT = 3;
@@ -41,6 +42,20 @@ export async function POST(req: NextRequest) {
   // Validación básica
   if (!name || !email || !message) {
     return NextResponse.json({ success: false, error: "Faltan campos" }, { status: 400 });
+  }
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+  if (supabaseUrl && supabaseKey) {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    await supabase.from("contact_messages").insert({
+      name,
+      email,
+      message,
+      services: Array.isArray(services) ? services : [],
+    });
   }
 
   const res = await fetch("https://api.resend.com/emails", {
