@@ -142,7 +142,7 @@ export default function DesarrolloWeb() {
         <div className="max-w-4xl mx-auto px-8 py-20">
           <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#bbb] block mb-6">Por qué elegirnos</span>
           <h2 className="text-3xl md:text-4xl leading-[1.1] mb-4" style={{ fontFamily: "Georgia, serif" }}>
-            <em className="text-[#2563eb]">Somos Liher y Oier,</em><br />
+            <em className="text-[#2563eb]">Somos Teknobai,</em><br />
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#111]">de la margen izquierda.</span>
           </h2>
           <p className="text-sm text-[#777] leading-relaxed mb-12 font-sans max-w-xl">
