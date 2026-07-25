@@ -54,7 +54,7 @@ export default function Services() {
             <span className="font-sans font-bold uppercase not-italic tracking-tight text-[#2563eb]">que necesitas para crecer.</span>
           </h2>
           <p className="reveal text-sm text-[#000000] mt-4 font-sans max-w-lg">
-            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones. No somos superhéroes — somos Liher, Oier e Iker.
+            Un equipo entero trabajando en conjunto para ofrecerte las mejores soluciones. 
           </p>
         </div>
 

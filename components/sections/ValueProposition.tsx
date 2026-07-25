@@ -119,7 +119,7 @@ export default function ValueProposition() {
               <FadeUp delay={0.1}>
                 <h2 className="text-3xl md:text-4xl leading-[1.1] mb-8" style={{ fontFamily: "Georgia, serif" }}>
                   <span className="text-[#00000]">No somos una agencia más.</span><br />
-                  <em className="text-[#2563eb]">Somos tu amigo y vecino TeknoBai.</em>
+                  <em className="text-[#2563eb]">Somos TeknoBai.</em>
                 </h2>
               </FadeUp>
               <FadeUp delay={0.2}>
@@ -129,7 +129,7 @@ export default function ValueProposition() {
               </FadeUp>
               <FadeUp delay={0.3}>
                 <a href="#contacto" className="group inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#111] hover:text-[#2563eb] transition-colors font-sans border-b border-[#111] hover:border-[#2563eb] pb-1">
-                  Quiero mi web yaaa!!
+                  ¡Quiero mi web ya!
                   <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </FadeUp>

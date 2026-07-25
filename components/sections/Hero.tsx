@@ -71,7 +71,7 @@ export default function Hero() {
           style={{ opacity: 0, transform: "translateY(20px)", transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)" }}
         >
           <p className="text-sm text-white/55 leading-relaxed max-w-xs font-sans">
-            Tres chavales del País Vasco que hacen webs de verdad para negocios como el tuyo. Sin humos, sin letra pequeña.
+            Hacemos webs de verdad para negocios como el tuyo. Sin humos, sin letra pequeña.
           </p>
           <a
             href="#contacto"

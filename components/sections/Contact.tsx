@@ -63,8 +63,8 @@ function ContactForm() {
           <div className="reveal space-y-6">
             {[
               { label: "Email",    value: "teknobai.online@gmail.com", href: "mailto:teknobai.online@gmail.com" },
-              { label: "WhatsApp", value: "+34 633 027 532",           href: "https://wa.me/34633027532" },
-              { label: "Teléfono", value: "+34 633 027 532",           href: "tel:+34633027532" },
+              { label: "WhatsApp", value: "+34 000 000 000",           href: "https://wa.me/000000000" },
+              { label: "Teléfono", value: "+34 000 000 000",           href: "tel:+000000000" },
             ].map(c => (
               <a key={c.label} href={c.href} className="group flex items-center justify-between border-b border-[#f0f0f0] pb-5 hover:border-[#111] transition-colors">
                 <div>
